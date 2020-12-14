@@ -1,7 +1,8 @@
 import React from 'react'
+import { AppProps } from 'next/app'
 import { ChakraProvider } from '@chakra-ui/react'
 
-function MyApp({ Component, pageProps }: any) {
+function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   return (
     <ChakraProvider>
       <Component {...pageProps} />
