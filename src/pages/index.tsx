@@ -2,8 +2,8 @@ import React from 'react'
 import { GetStaticProps } from 'next'
 import Head from 'next/head'
 import { Button } from '@chakra-ui/react'
-import { TApi } from '../../types/Api'
-import { TArticle } from '../../types/Article'
+import { TApi } from '@/types/Api'
+import { TArticle } from '@/types/Article'
 
 type Props = {
   articles: TArticle[]
