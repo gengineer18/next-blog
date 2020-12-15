@@ -4,6 +4,7 @@ import Head from 'next/head'
 import { Button } from '@chakra-ui/react'
 import { TApi } from '@/types/Api'
 import { TArticle } from '@/types/Article'
+import { apiKey } from '@/utils/common'
 
 type Props = {
   articles: TArticle[]
@@ -31,10 +32,7 @@ const Home = ({ articles }: Props): JSX.Element => (
 )
 
 export const getStaticProps: GetStaticProps = async () => {
-  const apiKey = {
-    headers: { 'X-API-KEY': process.env.API_KEY },
-  }
-  const data: TApi<TArticle> = await fetch(`https://gens-blog.microcms.io/api/v1/blog`, apiKey as RequestInit)
+  const data: TApi<TArticle> = await fetch(process.env.API_PATH as string, apiKey as RequestInit)
     .then((res) => res.json())
     .catch(() => null)
   return {
