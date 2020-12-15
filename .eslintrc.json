@@ -22,7 +22,7 @@
     "quotes": 0,
     "@typescript-eslint/explicit-function-return-type": 0,
     "@typescript-eslint/no-var-requires": 0,
-    "@typescript-eslint/quotes": [2, "backtick", { "avoidEscape": true }],
+    // "@typescript-eslint/quotes": [2, "backtick", { "avoidEscape": true }],
     "import/no-unresolved": 0,
     "react/jsx-uses-react": 1,
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", "ts", ".tsx"] }],
