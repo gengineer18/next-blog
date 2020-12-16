@@ -1,7 +1,8 @@
 import React from 'react'
 import { GetStaticProps } from 'next'
+import Link from 'next/link'
 import Head from 'next/head'
-import { Button } from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react'
 import { TApi } from '@/types/Api'
 import { TArticle } from '@/types/Article'
 import { apiKey } from '@/utils/common'
@@ -13,7 +14,7 @@ type Props = {
 const Home = ({ articles }: Props): JSX.Element => (
   <div>
     <Head>
-      <title>Create Next App</title>
+      <title>Blog</title>
       <link rel='icon' href='/favicon.ico' />
     </Head>
 
@@ -21,11 +22,16 @@ const Home = ({ articles }: Props): JSX.Element => (
       <div>
         <ul>
           {articles.map((article) => (
-            <li key={article.slug}>{article.title}</li>
+            <li key={article.id}>
+              <Link href={`/articles/${article.id}`}>
+                <Box>
+                  <h2>{article.title}</h2>
+                  <p>{article.publishedAt}</p>
+                </Box>
+              </Link>
+            </li>
           ))}
         </ul>
-        <p>test</p>
-        <Button colorScheme='blue'>testtest</Button>
       </div>
     </main>
   </div>
