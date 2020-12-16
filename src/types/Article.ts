@@ -3,7 +3,6 @@ export type TArticle = {
   title: string
   mainImage?: string
   body: string
-  slug: string
   createdAt: Date
   updatedAt: Date
   publishedAt: Date
