@@ -1,10 +1,11 @@
-export type TArticle = {
-  id: string
+import { TCmsResponse, TCategory, TTag } from '@/types'
+
+type BaseArticle = {
   title: string
   mainImage?: string
   body: string
-  createdAt: Date
-  updatedAt: Date
-  publishedAt: Date
-  revisedAt: Date
+  category: TCategory
+  tag?: TTag[]
 }
+
+export type TArticle = TCmsResponse & BaseArticle

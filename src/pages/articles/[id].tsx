@@ -1,21 +1,12 @@
-/* eslint-disable react/no-danger */
 import React from 'react'
-import { TApi } from '@/types/Api'
-import { TArticle } from '@/types/Article'
+import { TApi, TArticle } from '@/types'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { apiKey } from '@/utils/common'
+import { ArticleBody } from '@/components/article/organisms'
 
 type Props = {
   article: TArticle
 }
-
-const ArticleSlug = ({ article }: Props): JSX.Element => (
-  <article>
-    <h1>{article.title}</h1>
-    <p>{article.publishedAt}</p>
-    <div dangerouslySetInnerHTML={{ __html: `${article.body}` }} />
-  </article>
-)
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const data: TApi<TArticle> = await fetch(process.env.API_PATH as string, apiKey as RequestInit)
@@ -40,4 +31,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
   }
 }
 
-export default ArticleSlug
+const Article = ({ article }: Props): JSX.Element => <ArticleBody article={article} />
+
+export default Article
