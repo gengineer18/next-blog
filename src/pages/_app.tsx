@@ -1,12 +1,12 @@
 import React from 'react'
 import { AppProps } from 'next/app'
 import { ChakraProvider } from '@chakra-ui/react'
-import { Header } from '@/components/common/organisms/Header'
+import { TheHeader } from '@/components/common/organisms'
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   return (
     <ChakraProvider>
-      <Header />
+      <TheHeader />
       <Component {...pageProps} />
     </ChakraProvider>
   )

@@ -1,7 +1,7 @@
 import React from 'react'
 import { GetStaticProps } from 'next'
 import Head from 'next/head'
-import { ArticleList } from '@/components/home/organisms/ArticleList'
+import { ArticleList } from '@/components/home/organisms'
 import { TApi, TArticle } from '@/types'
 import { apiKey } from '@/utils/common'
 
