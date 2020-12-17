@@ -24,6 +24,7 @@
     "@typescript-eslint/no-var-requires": 0,
     // "@typescript-eslint/quotes": [2, "backtick", { "avoidEscape": true }],
     "import/no-unresolved": 0,
+    "react/require-default-props": 0,
     "react/jsx-uses-react": 1,
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", "ts", ".tsx"] }],
     "react-hooks/rules-of-hooks": "error",
