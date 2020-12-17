@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { Box } from '@chakra-ui/react'
-import { TArticle } from '@/types/Article'
+import { TArticle } from '@/types'
 
 type Props = {
   articles: TArticle[]

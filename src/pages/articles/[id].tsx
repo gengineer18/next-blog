@@ -1,7 +1,6 @@
 /* eslint-disable react/no-danger */
 import React from 'react'
-import { TApi } from '@/types/Api'
-import { TArticle } from '@/types/Article'
+import { TApi, TArticle } from '@/types'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { apiKey } from '@/utils/common'
 
