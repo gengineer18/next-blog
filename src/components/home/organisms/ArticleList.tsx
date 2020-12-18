@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import { Grid, GridItem } from '@chakra-ui/react'
 import { TArticle } from '@/types'
+import { ArticleListItem } from '../molecules'
 
 type Props = {
   articles: TArticle[]
@@ -14,8 +15,7 @@ export const ArticleList = ({ articles }: Props): JSX.Element => (
         <li key={article.id}>
           <Link href={`/articles/${article.id}`}>
             <GridItem colSpan={1}>
-              <h2>{article.title}</h2>
-              <p>{article.publishedAt}</p>
+              <ArticleListItem article={article} />
             </GridItem>
           </Link>
         </li>
