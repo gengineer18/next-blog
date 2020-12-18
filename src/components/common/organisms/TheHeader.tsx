@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import { Container, Flex, Box, Spacer } from '@chakra-ui/react'
 import styled from '@emotion/styled'
+import { baseW } from '@/utils/common'
 import { TheLogo } from '../atoms'
 
 const STWrapperBox = styled(Box)`
@@ -17,7 +18,7 @@ const STLogoBox = styled(Box)`
 export const TheHeader = React.memo(
   (): JSX.Element => (
     <STWrapperBox>
-      <Container maxW='6xl'>
+      <Container maxW={baseW}>
         <Flex>
           <Link href='/'>
             <a>

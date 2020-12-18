@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import { Box } from '@chakra-ui/react'
+import { Grid, GridItem } from '@chakra-ui/react'
 import { TArticle } from '@/types'
 
 type Props = {
@@ -8,20 +8,18 @@ type Props = {
 }
 
 export const ArticleList = ({ articles }: Props): JSX.Element => (
-  <main>
-    <div>
-      <ul>
-        {articles.map((article) => (
-          <li key={article.id}>
-            <Link href={`/articles/${article.id}`}>
-              <Box>
-                <h2>{article.title}</h2>
-                <p>{article.publishedAt}</p>
-              </Box>
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </div>
-  </main>
+  <ul>
+    <Grid templateColumns='repeat(2, 1fr)' gap={4}>
+      {articles.map((article) => (
+        <li key={article.id}>
+          <Link href={`/articles/${article.id}`}>
+            <GridItem colSpan={1}>
+              <h2>{article.title}</h2>
+              <p>{article.publishedAt}</p>
+            </GridItem>
+          </Link>
+        </li>
+      ))}
+    </Grid>
+  </ul>
 )
