@@ -6,7 +6,7 @@ type Props = {
   date: Date
 }
 
-export const ArticleDate = ({ date }: Props): JSX.Element => {
+export const ArticleDate: React.FC<Props> = ({ date }) => {
   const convertedDate = dateToYYYYMMDD(date)
   return <Text>{convertedDate}</Text>
 }

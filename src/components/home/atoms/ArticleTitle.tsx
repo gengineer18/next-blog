@@ -5,4 +5,4 @@ type Props = {
   title: string
 }
 
-export const ArticleTitle = ({ title }: Props): JSX.Element => <Heading>{title}</Heading>
+export const ArticleTitle: React.FC<Props> = ({ title }) => <Heading>{title}</Heading>
