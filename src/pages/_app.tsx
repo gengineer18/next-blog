@@ -18,13 +18,13 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
       <ChakraProvider>
         <TheHeader />
         <Container maxW={baseW}>
-          <Grid templateColumns='repeat(8, 1fr)' gap={4}>
-            <GridItem colSpan={6}>
-              <main style={{ border: '1px solid #000' }}>
+          <Grid templateColumns='repeat(8, 1fr)' gap={4} mt={8}>
+            <GridItem colSpan={[8, 8, 6]}>
+              <main>
                 <Component {...pageProps} />
               </main>
             </GridItem>
-            <GridItem colSpan={2}>
+            <GridItem colSpan={[8, 8, 2]}>
               <aside style={{ border: '1px solid #633' }}>
                 <p>testAside</p>
               </aside>

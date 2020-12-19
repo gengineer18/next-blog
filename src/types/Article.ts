@@ -2,10 +2,12 @@ import { TCmsResponse, TCategory, TTag } from '@/types'
 
 type BaseArticle = {
   title: string
-  mainImage?: string
+  mainImage?: {
+    url: string
+  }
   body: string
   category: TCategory
-  tag?: TTag[]
+  tags?: TTag[]
 }
 
 export type TArticle = TCmsResponse & BaseArticle
