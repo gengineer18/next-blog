@@ -2,7 +2,7 @@ import React from 'react'
 import { TArticle } from '@/types'
 import { Flex, Box, HStack } from '@chakra-ui/react'
 import styled from '@emotion/styled'
-import { ArticleTitle, ArticleDate, ArticleCategory, ArticleTag, ArticleImage } from '../atoms'
+import { ArticleTitle, ArticleDate, ArticleCategory, ArticleTag, ArticleImage } from '@/components/common/atoms'
 
 type Props = {
   article: TArticle
@@ -19,7 +19,7 @@ export const ArticleListItem = ({ article }: Props): JSX.Element => (
   <STFlex shadow='md' borderWidth='1px' p={8} alignItems='center' bg='blue.50'>
     {article.mainImage?.url && (
       <Box mr={2}>
-        <ArticleImage imageUrl={article.mainImage.url} />
+        <ArticleImage imageUrl={article.mainImage.url} width={92} height={92} />
       </Box>
     )}
     <Box>
