@@ -1,1 +1,1 @@
-export { ArticleBody } from './ArticleBody'
+export { TheArticle } from './TheArticle'
