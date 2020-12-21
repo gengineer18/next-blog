@@ -1,0 +1,1 @@
+export { ArticleContentsBox } from './ArticleContentsBox'

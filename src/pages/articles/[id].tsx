@@ -2,7 +2,7 @@ import React from 'react'
 import { TApi, TArticle } from '@/types'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { apiKey } from '@/utils/common'
-import { ArticleBody } from '@/components/article/organisms'
+import { TheArticle } from '@/components/article/organisms'
 
 type Props = {
   article: TArticle
@@ -31,6 +31,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
   }
 }
 
-const Article = ({ article }: Props): JSX.Element => <ArticleBody article={article} />
+const Article = ({ article }: Props): JSX.Element => <TheArticle article={article} />
 
 export default Article

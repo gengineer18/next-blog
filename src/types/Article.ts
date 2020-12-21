@@ -8,6 +8,8 @@ type BaseArticle = {
   body: string
   category: TCategory
   tags?: TTag[]
+  contents: string
+  description: string
 }
 
 export type TArticle = TCmsResponse & BaseArticle
