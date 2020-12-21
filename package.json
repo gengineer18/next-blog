@@ -15,6 +15,7 @@
     "dayjs": "^1.9.7",
     "emotion-reset": "^3.0.0",
     "framer-motion": "^2.9.5",
+    "highlight.js": "^10.4.1",
     "next": "10.0.0",
     "react": "17.0.1",
     "react-dom": "17.0.1"
