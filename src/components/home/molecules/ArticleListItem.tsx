@@ -2,7 +2,7 @@ import React from 'react'
 import { TArticle } from '@/types'
 import { Flex, Box, HStack } from '@chakra-ui/react'
 import styled from '@emotion/styled'
-import { ArticleTitle, ArticleDate, ArticleCategory, ArticleTag, ArticleImage } from '@/components/common/atoms'
+import { ArticleTitle, ArticleDate, ArticleCategory, ArticleTag, ArticleImage } from '@/components/common/article/atoms'
 
 type Props = {
   article: TArticle

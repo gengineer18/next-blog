@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { Container, Flex, Box, Spacer } from '@chakra-ui/react'
 import styled from '@emotion/styled'
 import { baseW } from '@/utils/common'
-import { TheLogo } from '../atoms'
+import { TheLogo } from '../../utils/atoms'
 
 const STWrapperBox = styled(Box)`
   background: linear-gradient(270deg, #e5012c 0%, #062883 30%);
