@@ -23,8 +23,8 @@ export const ArticleListItem = ({ article }: Props): JSX.Element => (
       </Box>
     )}
     <Box>
-      <ArticleTitle title={article.title} />
-      <ArticleDate date={article.publishedAt} />
+      <ArticleTitle title={article.title} size='sm' />
+      <ArticleDate date={article.publishedAt} size='sm' />
       <ArticleCategory name={article.category.name} />
       <HStack spacing={2} mt={2}>
         {article.tags?.map((tag) => (
