@@ -1,7 +1,7 @@
 import { TArticle } from '@/types'
 import React from 'react'
 import { Box, Center, HStack } from '@chakra-ui/react'
-import { ArticleCategory, ArticleDate, ArticleImage, ArticleTag, ArticleTitle } from '@/components/common/atoms'
+import { ArticleCategory, ArticleDate, ArticleImage, ArticleTag, ArticleTitle } from '@/components/common/article/atoms'
 import { ArticleBody } from '../atoms'
 import { ArticleContentsBox } from '../molecules'
 

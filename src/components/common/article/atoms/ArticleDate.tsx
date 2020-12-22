@@ -4,9 +4,10 @@ import { dateToYYYYMMDD } from '@/utils/common'
 
 type Props = {
   date: Date
+  size?: string
 }
 
-export const ArticleDate: React.FC<Props> = ({ date }) => {
+export const ArticleDate: React.FC<Props> = ({ date, size = 'md' }) => {
   const convertedDate = dateToYYYYMMDD(date)
-  return <Text>{convertedDate}</Text>
+  return <Text fontSize={size}>{convertedDate}</Text>
 }

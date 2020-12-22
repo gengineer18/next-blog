@@ -2,7 +2,7 @@ import React from 'react'
 import { TArticle } from '@/types'
 import { Flex, Box, HStack } from '@chakra-ui/react'
 import styled from '@emotion/styled'
-import { ArticleTitle, ArticleDate, ArticleCategory, ArticleTag, ArticleImage } from '@/components/common/atoms'
+import { ArticleTitle, ArticleDate, ArticleCategory, ArticleTag, ArticleImage } from '@/components/common/article/atoms'
 
 type Props = {
   article: TArticle
@@ -23,8 +23,8 @@ export const ArticleListItem = ({ article }: Props): JSX.Element => (
       </Box>
     )}
     <Box>
-      <ArticleTitle title={article.title} />
-      <ArticleDate date={article.publishedAt} />
+      <ArticleTitle title={article.title} size='sm' />
+      <ArticleDate date={article.publishedAt} size='sm' />
       <ArticleCategory name={article.category.name} />
       <HStack spacing={2} mt={2}>
         {article.tags?.map((tag) => (
