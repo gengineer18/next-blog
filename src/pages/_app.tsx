@@ -2,7 +2,7 @@
 import React from 'react'
 import { AppProps } from 'next/app'
 import { ChakraProvider, Grid, GridItem, Container } from '@chakra-ui/react'
-import { TheHeader } from '@/components/common/organisms'
+import { TheHeader, TheAside } from '@/components/common/layout/organisms'
 import { baseW } from '@/utils/common'
 import reset from 'emotion-reset'
 import { Global, css } from '@emotion/react'
@@ -25,8 +25,8 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
               </main>
             </GridItem>
             <GridItem colSpan={[8, 8, 2]}>
-              <aside style={{ border: '1px solid #633' }}>
-                <p>testAside</p>
+              <aside>
+                <TheAside />
               </aside>
             </GridItem>
           </Grid>
