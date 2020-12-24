@@ -21,7 +21,7 @@ const Home = ({ articles }: Props): JSX.Element => (
 )
 
 export const getStaticProps: GetStaticProps = async () => {
-  const data: TApi<TArticle> = await fetch(process.env.API_PATH as string, apiKey as RequestInit)
+  const data: TApi<TArticle> = await fetch(`${process.env.API_PATH}/blog`, apiKey as RequestInit)
     .then((res) => res.json())
     .catch(() => null)
   return {

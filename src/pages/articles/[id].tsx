@@ -9,7 +9,7 @@ type Props = {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const data: TApi<TArticle> = await fetch(process.env.API_PATH as string, apiKey as RequestInit)
+  const data: TApi<TArticle> = await fetch(`${process.env.API_PATH}/blog`, apiKey as RequestInit)
     .then((res) => res.json())
     .catch(() => null)
   const paths = data.contents.map((content) => `/articles/${content.id}`)
@@ -21,7 +21,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const id = context.params?.id || ''
-  const data: TArticle = await fetch(`${process.env.API_PATH as string}/${id}`, apiKey as RequestInit)
+  const data: TArticle = await fetch(`${process.env.API_PATH}/blog/${id}`, apiKey as RequestInit)
     .then((res) => res.json())
     .catch(() => null)
   return {
