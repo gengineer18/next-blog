@@ -8,6 +8,6 @@ export const TheAside: React.FC<TCmsItems> = ({ cmsItems }) => (
     <AsideProfile />
     <AsideLatestItems latestArticles={cmsItems.latestArticles} />
     <AsideCategories categories={cmsItems.categories} />
-    <AsideTags />
+    <AsideTags tags={cmsItems.tags} />
   </Stack>
 )

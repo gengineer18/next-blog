@@ -6,7 +6,7 @@ import { TheHeader, TheAside } from '@/components/common/layout/organisms'
 import { baseW, apiKey } from '@/utils/common'
 import reset from 'emotion-reset'
 import { Global, css } from '@emotion/react'
-import { TApi, TArticle, TCmsItems, TCategory } from '@/types'
+import { TApi, TArticle, TCmsItems, TCategory, TTag } from '@/types'
 
 function MyApp({ Component, pageProps, cmsItems }: AppProps & TCmsItems): JSX.Element {
   return (
@@ -46,10 +46,16 @@ MyApp.getInitialProps = async () => {
   const categories: TApi<TCategory> = await fetch(`${process.env.API_PATH}/categories`, apiKey as RequestInit)
     .then((res) => res.json())
     .catch(() => null)
+
+  const tags: TApi<TTag> = await fetch(`${process.env.API_PATH}/tags`, apiKey as RequestInit)
+    .then((res) => res.json())
+    .catch(() => null)
+
   return {
     cmsItems: {
       latestArticles: latestArticles.contents,
       categories: categories.contents,
+      tags: tags.contents,
     },
   }
 }
