@@ -3,11 +3,12 @@ import React from 'react'
 import { AppProps } from 'next/app'
 import { ChakraProvider, Grid, GridItem, Container } from '@chakra-ui/react'
 import { TheHeader, TheAside } from '@/components/common/layout/organisms'
-import { baseW } from '@/utils/common'
+import { baseW, apiKey } from '@/utils/common'
 import reset from 'emotion-reset'
 import { Global, css } from '@emotion/react'
+import { TApi, TArticle, TCmsItems, TCategory } from '@/types'
 
-function MyApp({ Component, pageProps }: AppProps): JSX.Element {
+function MyApp({ Component, pageProps, cmsItems }: AppProps & TCmsItems): JSX.Element {
   return (
     <>
       <Global
@@ -26,7 +27,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
             </GridItem>
             <GridItem colSpan={[8, 8, 2]}>
               <aside>
-                <TheAside />
+                <TheAside cmsItems={cmsItems} />
               </aside>
             </GridItem>
           </Grid>
@@ -35,6 +36,18 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
       </ChakraProvider>
     </>
   )
+}
+
+MyApp.getInitialProps = async () => {
+  const latestArticles: TApi<TArticle> = await fetch(`${process.env.API_PATH}/blog`, apiKey as RequestInit)
+    .then((res) => res.json())
+    .catch(() => null)
+
+  return {
+    cmsItems: {
+      latestArticles: latestArticles.contents,
+    },
+  }
 }
 
 export default MyApp
