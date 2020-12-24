@@ -43,9 +43,13 @@ MyApp.getInitialProps = async () => {
     .then((res) => res.json())
     .catch(() => null)
 
+  const categories: TApi<TCategory> = await fetch(`${process.env.API_PATH}/categories`, apiKey as RequestInit)
+    .then((res) => res.json())
+    .catch(() => null)
   return {
     cmsItems: {
       latestArticles: latestArticles.contents,
+      categories: categories.contents,
     },
   }
 }
