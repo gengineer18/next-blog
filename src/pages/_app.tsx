@@ -39,7 +39,7 @@ function MyApp({ Component, pageProps, cmsItems }: AppProps & TCmsItems): JSX.El
 }
 
 MyApp.getInitialProps = async () => {
-  const latestArticles: TApi<TArticle> = await fetch(`${process.env.API_PATH}/blog`, apiKey as RequestInit)
+  const articles: TApi<TArticle> = await fetch(`${process.env.API_PATH}/blog`, apiKey as RequestInit)
     .then((res) => res.json())
     .catch(() => null)
 
@@ -53,7 +53,7 @@ MyApp.getInitialProps = async () => {
 
   return {
     cmsItems: {
-      latestArticles: latestArticles.contents,
+      articles: articles.contents,
       categories: categories.contents,
       tags: tags.contents,
     },
