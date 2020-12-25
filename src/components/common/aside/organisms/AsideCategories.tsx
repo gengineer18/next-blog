@@ -1,16 +1,31 @@
 import React from 'react'
-import { TCategory } from '@/types'
+import { TCategory, TArticle } from '@/types'
 import { Box } from '@chakra-ui/react'
 import { AsideBox } from '../molecules'
+import { AsideNumberListItem } from '../atoms'
 
 type Props = {
   categories: TCategory[]
+  articles: TArticle[]
 }
 
-export const AsideCategories: React.FC<Props> = ({ categories }) => (
-  <AsideBox title='カテゴリー'>
-    {categories.map((category) => (
-      <Box key={category.id}>{category.name}</Box>
-    ))}
-  </AsideBox>
-)
+export const AsideCategories: React.FC<Props> = ({ categories, articles }) => {
+  const categoriesArray = categories
+  for (let i = 0; i < categoriesArray.length; i += 1) {
+    const categoryArticle = articles.filter((article) => article.category.id === categoriesArray[i].id)
+    categoriesArray[i].count = categoryArticle.length
+  }
+  return (
+    <AsideBox title='カテゴリー'>
+      {categoriesArray.map((category) =>
+        category.count !== 0 ? (
+          <Box key={category.id} mt={2}>
+            <AsideNumberListItem item={category} pathRoot='categories' />
+          </Box>
+        ) : (
+          <React.Fragment key={category.id} />
+        )
+      )}
+    </AsideBox>
+  )
+}
