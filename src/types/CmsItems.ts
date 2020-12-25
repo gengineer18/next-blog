@@ -2,7 +2,7 @@ import { TArticle, TCategory, TTag } from '@/types'
 
 export type TCmsItems = {
   cmsItems: {
-    latestArticles: TArticle[]
+    articles: TArticle[]
     categories: TCategory[]
     tags: TTag[]
   }

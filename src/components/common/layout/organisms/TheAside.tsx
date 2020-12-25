@@ -6,8 +6,7 @@ import { AsideCategories, AsideLatestItems, AsideProfile, AsideTags } from '../.
 export const TheAside: React.FC<TCmsItems> = ({ cmsItems }) => (
   <Stack spacing={8}>
     <AsideProfile />
-    <AsideLatestItems latestArticles={cmsItems.latestArticles} />
-    <AsideCategories categories={cmsItems.categories} />
+    <AsideLatestItems latestArticles={cmsItems.articles} />
     <AsideTags tags={cmsItems.tags} />
   </Stack>
 )
