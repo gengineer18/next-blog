@@ -10,3 +10,8 @@ export const dateToYYYYMMDD = (date: Date): string => {
   const dateYYYYMMDD = dayjs(date).format('YYYY年MM月DD日')
   return dateYYYYMMDD
 }
+
+export const dateToYYYYMM = (date: Date, format: string): string => {
+  const dateYYYYMM = dayjs(date).format(format)
+  return dateYYYYMM
+}
