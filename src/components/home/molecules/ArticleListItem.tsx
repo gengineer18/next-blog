@@ -16,7 +16,7 @@ const STFlex = styled(Flex)`
 `
 
 export const ArticleListItem = ({ article }: Props): JSX.Element => (
-  <STFlex shadow='md' borderWidth='1px' p={8} alignItems='center' bg='blue.50'>
+  <STFlex shadow='md' borderWidth='1px' p={8} alignItems='center' bg='blue.50' h='100%'>
     {article.mainImage?.url && (
       <Box mr={2}>
         <ArticleImage imageUrl={article.mainImage.url} width={92} height={92} />
@@ -26,9 +26,11 @@ export const ArticleListItem = ({ article }: Props): JSX.Element => (
       <ArticleTitle title={article.title} size='sm' />
       <ArticleDate date={article.publishedAt} size='sm' />
       <ArticleCategory name={article.category.name} />
-      <HStack spacing={2} mt={2}>
+      <HStack spacing={0} wrap='wrap' shouldWrapChildren>
         {article.tags?.map((tag) => (
-          <ArticleTag name={tag.name} key={tag.id} />
+          <Box mt={1} mr={2} key={tag.id}>
+            <ArticleTag name={tag.name} />
+          </Box>
         ))}
       </HStack>
     </Box>
