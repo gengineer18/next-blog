@@ -1,7 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
 import { Box } from '@chakra-ui/react'
-import { TCategory, TTag } from '@/types'
 import styled from '@emotion/styled'
 
 type Props = {
@@ -21,7 +20,7 @@ const STBox = styled(Box)`
 `
 
 export const AsideNumberListItem: React.FC<Props> = ({ id, name, count, pathRoot }) => (
-  <STBox>
-    <Link href={`/${pathRoot}/${id}`}>{`${name} (${count})`}</Link>
-  </STBox>
+  <Link href={`/${pathRoot}/${id}`}>
+    <STBox>{`${name} (${count})`}</STBox>
+  </Link>
 )
