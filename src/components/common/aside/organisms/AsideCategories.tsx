@@ -3,6 +3,7 @@ import { TCategory, TArticle } from '@/types'
 import { Box } from '@chakra-ui/react'
 import { AsideBox } from '../molecules'
 import { AsideNumberListItem } from '../atoms'
+import { useCategories } from './hooks/useCategories'
 
 type Props = {
   categories: TCategory[]
@@ -10,11 +11,7 @@ type Props = {
 }
 
 export const AsideCategories: React.FC<Props> = ({ categories, articles }) => {
-  const categoriesArray = categories
-  for (let i = 0; i < categoriesArray.length; i += 1) {
-    const categoryArticle = articles.filter((article) => article.category.id === categoriesArray[i].id)
-    categoriesArray[i].count = categoryArticle.length
-  }
+  const { categoriesArray } = useCategories({ categories, articles })
   return (
     <AsideBox title='カテゴリー'>
       {categoriesArray.map((category) =>
