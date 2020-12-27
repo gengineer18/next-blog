@@ -19,7 +19,7 @@ const STBox = styled(Box)`
 `
 
 export const AsideArticleListItem: React.FC<Props> = ({ article }) => (
-  <STBox>
-    <Link href={`/articles/${article.id}`}>{`${article.title} / ${dateToYYYYMMDD(article.publishedAt)}`}</Link>
-  </STBox>
+  <Link href={`/articles/${article.id}`}>
+    <STBox>{`${article.title} / ${dateToYYYYMMDD(article.publishedAt)}`}</STBox>
+  </Link>
 )
