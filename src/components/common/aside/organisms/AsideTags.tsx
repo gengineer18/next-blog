@@ -15,9 +15,9 @@ export const AsideTags: React.FC<Props> = ({ tags, articles }) => {
   return (
     <AsideBox title='タグ'>
       {tagsArray.map((tag) =>
-        tag.count !== 0 ? (
+        tag.count ? (
           <Box key={tag.id} mt={2}>
-            <AsideNumberListItem item={tag} pathRoot='tags' />
+            <AsideNumberListItem id={tag.id} name={tag.name} count={tag.count} pathRoot='tags' />
           </Box>
         ) : (
           <React.Fragment key={tag.id} />
