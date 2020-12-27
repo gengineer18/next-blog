@@ -5,7 +5,7 @@ type Props = {
   articles: TArticle[]
 }
 
-export const useArchives = ({ articles }: Props): { articlesArray: TArticle[] } => {
+export const useArchives = ({ articles }: Props): { articlesArray: typeof articlesArray } => {
   const DATE_FORMAT = 'YYYY-MM'
   const VIEW_DATE_FORMAT = 'YYYY年MM月'
   const articleMonths = articles.map((article) => dateToYYYYMM(article.publishedAt, DATE_FORMAT))
