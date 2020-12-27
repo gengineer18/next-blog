@@ -5,8 +5,10 @@ import { TCategory, TTag } from '@/types'
 import styled from '@emotion/styled'
 
 type Props = {
-  item: TCategory | TTag
-  pathRoot: 'categories' | 'tags'
+  id: string
+  name: string
+  count: number
+  pathRoot: string
 }
 
 const STBox = styled(Box)`
@@ -18,8 +20,8 @@ const STBox = styled(Box)`
   }
 `
 
-export const AsideNumberListItem: React.FC<Props> = ({ item, pathRoot }) => (
+export const AsideNumberListItem: React.FC<Props> = ({ id, name, count, pathRoot }) => (
   <STBox>
-    <Link href={`/${pathRoot}/${item.id}`}>{`${item.name} (${item.count})`}</Link>
+    <Link href={`/${pathRoot}/${id}`}>{`${name} (${count})`}</Link>
   </STBox>
 )

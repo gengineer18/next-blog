@@ -18,9 +18,9 @@ export const AsideCategories: React.FC<Props> = ({ categories, articles }) => {
   return (
     <AsideBox title='カテゴリー'>
       {categoriesArray.map((category) =>
-        category.count !== 0 ? (
+        category.count ? (
           <Box key={category.id} mt={2}>
-            <AsideNumberListItem item={category} pathRoot='categories' />
+            <AsideNumberListItem id={category.id} name={category.name} count={category.count} pathRoot='categories' />
           </Box>
         ) : (
           <React.Fragment key={category.id} />
