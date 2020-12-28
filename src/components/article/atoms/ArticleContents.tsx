@@ -49,5 +49,5 @@ const STBox = styled(Box)`
 `
 
 export const ArticleContents: React.FC<Props> = memo(({ contents }) => (
-  <STBox dangerouslySetInnerHTML={{ __html: `${contents}` }} pt={4} px={4} />
+  <STBox dangerouslySetInnerHTML={{ __html: `${contents}` }} pt={4} pl={3} />
 ))

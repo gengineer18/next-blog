@@ -20,6 +20,7 @@ const STBox = styled(Box)`
     margin-bottom: 1rem;
   }
   & > h3 {
+    line-height: 2rem;
     font-size: 1.5rem;
     font-weight: bold;
     margin-left: 1rem;
@@ -42,10 +43,16 @@ const STBox = styled(Box)`
   }
   & > p {
     font-size: 1.2rem;
+    margin: 0 1rem 2rem;
     line-height: 2rem;
     a {
       color: #062883;
       text-decoration: underline;
+    }
+    br {
+      display: block;
+      content: '';
+      margin: 1rem 0;
     }
     code {
       display: inline-block;
@@ -76,13 +83,27 @@ const STBox = styled(Box)`
   }
   & > ul {
     list-style: none;
-    margin-left: 1rem;
+    margin-left: 2rem;
+    margin-bottom: 2rem;
     & > li {
       text-indent: -1rem;
       &:before {
         content: '●';
         color: #062883;
         margin-right: 0.5rem;
+      }
+      & > ul {
+        list-style: none;
+        margin-left: 2rem;
+        & > li {
+          text-indent: -1rem;
+          &:before {
+            content: '●';
+            font-size: 0.75rem;
+            color: #cd241c;
+            margin-right: 0.5rem;
+          }
+        }
       }
     }
   }
