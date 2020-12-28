@@ -17,7 +17,7 @@ const STBox = styled(Box)`
     color: white;
     font-weight: bold;
     font-size: 1.6rem;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
   }
   & > h3 {
     line-height: 2rem;
@@ -78,15 +78,18 @@ const STBox = styled(Box)`
     -webkit-overflow-scrolling: touch;
   }
   & > ol {
+    font-size: 1.2rem;
     list-style: decimal;
     margin-left: 1rem;
   }
   & > ul {
+    font-size: 1.2rem;
     list-style: none;
     margin-left: 2rem;
     margin-bottom: 2rem;
     & > li {
       text-indent: -1rem;
+      margin-bottom: 0.5rem;
       &:before {
         content: '●';
         color: #062883;
