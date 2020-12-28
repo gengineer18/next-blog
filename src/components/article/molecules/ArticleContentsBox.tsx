@@ -34,7 +34,7 @@ export const ArticleContentsBox: React.FC<Props> = ({ contents }) => {
             </Button>
           </Flex>
           <Collapse in={isOpen} animateOpacity>
-            <Box pt={4} px={4}>
+            <Box pt={4} pl={4}>
               <ArticleContents contents={contents} />
             </Box>
           </Collapse>
