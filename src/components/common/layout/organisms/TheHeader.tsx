@@ -6,7 +6,12 @@ import { baseW } from '@/utils/common'
 import { TheLogo } from '../../utils/atoms'
 
 const STWrapperBox = styled(Box)`
-  background: linear-gradient(270deg, #e5012c 0%, #062883 30%);
+  background: linear-gradient(90deg, #1642bb, #cd241c);
+  padding-bottom: 8px;
+`
+
+const STInnerBox = styled(Box)`
+  background: white;
 `
 
 const STLogoBox = styled(Box)`
@@ -18,18 +23,21 @@ const STLogoBox = styled(Box)`
 export const TheHeader = React.memo(
   (): JSX.Element => (
     <STWrapperBox>
-      <Container maxW={baseW}>
-        <Flex>
-          <Link href='/'>
-            <a>
-              <STLogoBox>
-                <TheLogo width={100} height={60} />
-              </STLogoBox>
-            </a>
-          </Link>
-          <Spacer />
-        </Flex>
-      </Container>
+      <STInnerBox>
+        <Container maxW={baseW}>
+          <Flex>
+            <Spacer />
+            <Link href='/'>
+              <a>
+                <STLogoBox>
+                  <TheLogo width={280} height={100} />
+                </STLogoBox>
+              </a>
+            </Link>
+            <Spacer />
+          </Flex>
+        </Container>
+      </STInnerBox>
     </STWrapperBox>
   )
 )
