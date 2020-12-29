@@ -11,12 +11,12 @@ type Props = {
 const STFlex = styled(Flex)`
   &:hover {
     cursor: pointer;
-    opacity: 0.8;
+    background-color: #f4f4f4;
   }
 `
 
 export const ArticleListItem = ({ article }: Props): JSX.Element => (
-  <STFlex shadow='md' borderWidth='1px' p={8} alignItems='center' bg='blue.50' h='100%'>
+  <STFlex shadow='lg' borderWidth='1px' p={8} alignItems='center' h='100%'>
     {article.mainImage?.url && (
       <Box mr={2}>
         <ArticleImage imageUrl={article.mainImage.url} width={92} height={92} />

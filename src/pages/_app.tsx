@@ -19,13 +19,13 @@ function MyApp({ Component, pageProps, cmsItems }: AppProps & TCmsItems): JSX.El
       <ChakraProvider>
         <TheHeader />
         <Container maxW={baseW}>
-          <Grid templateColumns='repeat(16, 1fr)' gap={8} mt={8}>
-            <GridItem colSpan={[16, 16, 11]}>
+          <Grid templateColumns='repeat(10, 1fr)' gap={8} mt={8}>
+            <GridItem colSpan={[10, 10, 7]}>
               <main>
                 <Component {...pageProps} />
               </main>
             </GridItem>
-            <GridItem colSpan={[16, 16, 5]}>
+            <GridItem colSpan={[10, 10, 3]}>
               <aside>
                 <TheAside cmsItems={cmsItems} />
               </aside>
