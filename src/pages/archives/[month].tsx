@@ -12,8 +12,9 @@ type Props = {
 const Archives = ({ articles }: Props): JSX.Element => (
   <div>
     <Head>
-      <title>Blog</title>
-      <link rel='icon' href='/favicon.ico' />
+      <title>
+        {`アーカイブ: ${dateToYYYYMM(articles[0].publishedAt, 'YYYY年MM月')} | Sorellina Coda Official Blog`}
+      </title>
     </Head>
 
     <ArticleList articles={articles} />

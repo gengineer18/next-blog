@@ -1,9 +1,10 @@
 /* eslint-disable react/style-prop-object */
 import React, { useEffect, useCallback } from 'react'
+import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { AppProps } from 'next/app'
 import { ChakraProvider, Grid, GridItem, Container } from '@chakra-ui/react'
-import { TheHeader, TheAside } from '@/components/common/layout/organisms'
+import { TheHeader, TheAside, TheFooter } from '@/components/common/layout/organisms'
 import { baseW, apiKey } from '@/utils/common'
 import reset from 'emotion-reset'
 import { Global, css } from '@emotion/react'
@@ -34,6 +35,15 @@ function MyApp({ Component, pageProps, cmsItems }: AppProps & TCmsItems): JSX.El
 
   return (
     <>
+      <Head>
+        <title>Sorellina Coda Official Blog</title>
+        <meta charSet='utf-8' />
+        <meta
+          name='description'
+          content='Sorellina Coda(代表: 妹尾 弦)のブログです。フロントエンドにまつわるあれこれ、フリーランスとしての働き方、マネーリテラシーなどの生活をより豊かにするTipsなどを書いていきます。'
+        />
+        <link rel='icon' href='/favicon.ico' />
+      </Head>
       <Global
         styles={css`
           ${reset}
@@ -55,7 +65,9 @@ function MyApp({ Component, pageProps, cmsItems }: AppProps & TCmsItems): JSX.El
             </GridItem>
           </Grid>
         </Container>
-        <footer>testFooter</footer>
+        <footer>
+          <TheFooter />
+        </footer>
       </ChakraProvider>
     </>
   )

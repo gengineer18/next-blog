@@ -1,4 +1,5 @@
 import React from 'react'
+import Head from 'next/head'
 import { TApi, TArticle } from '@/types'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { apiKey } from '@/utils/common'
@@ -31,6 +32,14 @@ export const getStaticProps: GetStaticProps = async (context) => {
   }
 }
 
-const Article = ({ article }: Props): JSX.Element => <TheArticle article={article} />
+const Article = ({ article }: Props): JSX.Element => (
+  <>
+    <Head>
+      <title>{`${article.title} | Sorellina Coda Official Blog`}</title>
+      <meta name='description' content={`${article.description}`} />
+    </Head>
+    <TheArticle article={article} />
+  </>
+)
 
 export default Article

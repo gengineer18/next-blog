@@ -12,8 +12,9 @@ type Props = {
 const Tags = ({ articles }: Props): JSX.Element => (
   <div>
     <Head>
-      <title>Blog</title>
-      <link rel='icon' href='/favicon.ico' />
+      <title>
+        {`タグ: ${articles[0] && articles[0].tags && articles[0]?.tags[0].name} | Sorellina Coda Official Blog`}
+      </title>
     </Head>
 
     <ArticleList articles={articles} />
