@@ -3,7 +3,7 @@ import React, { useEffect, useCallback } from 'react'
 import { useRouter } from 'next/router'
 import { AppProps } from 'next/app'
 import { ChakraProvider, Grid, GridItem, Container } from '@chakra-ui/react'
-import { TheHeader, TheAside } from '@/components/common/layout/organisms'
+import { TheHeader, TheAside, TheFooter } from '@/components/common/layout/organisms'
 import { baseW, apiKey } from '@/utils/common'
 import reset from 'emotion-reset'
 import { Global, css } from '@emotion/react'
@@ -55,7 +55,9 @@ function MyApp({ Component, pageProps, cmsItems }: AppProps & TCmsItems): JSX.El
             </GridItem>
           </Grid>
         </Container>
-        <footer>testFooter</footer>
+        <footer>
+          <TheFooter />
+        </footer>
       </ChakraProvider>
     </>
   )
