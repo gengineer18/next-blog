@@ -12,7 +12,7 @@ type Props = {
 const Categories = ({ articles }: Props): JSX.Element => (
   <div>
     <Head>
-      <title>{`カテゴリー: ${articles[0].category.name} | Sorellina Coda Official Blog`}</title>
+      <title>{`カテゴリー: ${articles[0] && articles[0].category.name} | Sorellina Coda Official Blog`}</title>
     </Head>
 
     <ArticleList articles={articles} />
