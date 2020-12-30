@@ -1,5 +1,6 @@
 /* eslint-disable react/style-prop-object */
-import React from 'react'
+import React, { useEffect, useCallback } from 'react'
+import { useRouter } from 'next/router'
 import { AppProps } from 'next/app'
 import { ChakraProvider, Grid, GridItem, Container } from '@chakra-ui/react'
 import { TheHeader, TheAside } from '@/components/common/layout/organisms'
@@ -7,8 +8,30 @@ import { baseW, apiKey } from '@/utils/common'
 import reset from 'emotion-reset'
 import { Global, css } from '@emotion/react'
 import { TApi, TArticle, TCmsItems, TCategory, TTag } from '@/types'
+import * as gtag from '@/utils/gtag'
 
 function MyApp({ Component, pageProps, cmsItems }: AppProps & TCmsItems): JSX.Element {
+  const router = useRouter()
+
+  const handleRouteChange = useCallback((path: string) => {
+    gtag.pageview(path)
+  }, [])
+
+  const eventsOff = useCallback(() => {
+    router.events.off('routeChangeComplete', handleRouteChange)
+  }, [])
+
+  useEffect(() => {
+    if (!gtag.existsGaId) {
+      return eventsOff()
+    }
+
+    router.events.on('routeChangeComplete', handleRouteChange)
+    return () => {
+      eventsOff()
+    }
+  }, [router.events])
+
   return (
     <>
       <Global
