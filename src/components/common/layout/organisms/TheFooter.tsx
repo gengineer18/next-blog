@@ -4,7 +4,7 @@ import React from 'react'
 export const TheFooter: React.FC = () => (
   <Flex py={8}>
     <Spacer />
-    <Text>©️ 2020 Sorellia Coda</Text>
+    <Text>©️ 2020 Sorellina Coda</Text>
     <Spacer />
   </Flex>
 )
