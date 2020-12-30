@@ -12,8 +12,7 @@ type Props = {
 const Categories = ({ articles }: Props): JSX.Element => (
   <div>
     <Head>
-      <title>Blog</title>
-      <link rel='icon' href='/favicon.ico' />
+      <title>{`カテゴリー: ${articles[0].category.name} | Sorellina Coda Official Blog`}</title>
     </Head>
 
     <ArticleList articles={articles} />

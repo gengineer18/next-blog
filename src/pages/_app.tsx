@@ -1,5 +1,6 @@
 /* eslint-disable react/style-prop-object */
 import React, { useEffect, useCallback } from 'react'
+import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { AppProps } from 'next/app'
 import { ChakraProvider, Grid, GridItem, Container } from '@chakra-ui/react'
@@ -34,6 +35,15 @@ function MyApp({ Component, pageProps, cmsItems }: AppProps & TCmsItems): JSX.El
 
   return (
     <>
+      <Head>
+        <title>Sorellina Coda Official Blog</title>
+        <meta charSet='utf-8' />
+        <meta
+          name='description'
+          content='Sorellina Coda(代表: 妹尾 弦)のブログです。フロントエンドにまつわるあれこれ、フリーランスとしての働き方、マネーリテラシーなどの生活をより豊かにするTipsなどを書いていきます。'
+        />
+        <link rel='icon' href='/favicon.ico' />
+      </Head>
       <Global
         styles={css`
           ${reset}

@@ -1,6 +1,5 @@
 import React from 'react'
 import { GetStaticProps } from 'next'
-import Head from 'next/head'
 import { ArticleList } from '@/components/home/organisms'
 import { TApi, TArticle } from '@/types'
 import { apiKey } from '@/utils/common'
@@ -10,14 +9,9 @@ type Props = {
 }
 
 const Home = ({ articles }: Props): JSX.Element => (
-  <div>
-    <Head>
-      <title>Blog</title>
-      <link rel='icon' href='/favicon.ico' />
-    </Head>
-
+  <>
     <ArticleList articles={articles} />
-  </div>
+  </>
 )
 
 export const getStaticProps: GetStaticProps = async () => {
