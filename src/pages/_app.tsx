@@ -10,6 +10,7 @@ import reset from 'emotion-reset'
 import { Global, css } from '@emotion/react'
 import { TApi, TArticle, TCmsItems, TCategory, TTag } from '@/types'
 import * as gtag from '@/utils/gtag'
+import { ogTitle, ogDescription, ogSiteName, ogType, ogUrl, ogImage, twCard, twSite } from '@/utils/ogp'
 
 function MyApp({ Component, pageProps, cmsItems }: AppProps & TCmsItems): JSX.Element {
   const router = useRouter()
@@ -36,12 +37,19 @@ function MyApp({ Component, pageProps, cmsItems }: AppProps & TCmsItems): JSX.El
   return (
     <>
       <Head>
-        <title>Sorellina Coda Official Blog</title>
+        <title>{ogTitle}</title>
         <meta charSet='utf-8' />
-        <meta
-          name='description'
-          content='Sorellina Coda(代表: 妹尾 弦)のブログです。フロントエンドにまつわるあれこれ、フリーランスとしての働き方、マネーリテラシーなどの生活をより豊かにするTipsなどを書いていきます。'
-        />
+        <meta name='description' content={ogDescription} />
+        <meta property='og:url' content={ogUrl} />
+        <meta property='og:type' content={ogType.web} />
+        <meta property='og:title' content={ogTitle} />
+        <meta property='og:description' content={ogDescription} />
+        <meta property='og:site_name' content={ogSiteName} />
+        <meta property='og:image' content={ogImage.path} />
+        <meta property='og:image:width' content={ogImage.width} />
+        <meta property='og:image:height' content={ogImage.height} />
+        <meta name='twitter:card' content={twCard.summary} />
+        <meta name='twitter:site' content={twSite} />
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <Global
