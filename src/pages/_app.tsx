@@ -48,7 +48,7 @@ function MyApp({ Component, pageProps, cmsItems }: AppProps & TCmsItems): JSX.El
         <meta property='og:image' content={ogImage.path} />
         <meta property='og:image:width' content={ogImage.width} />
         <meta property='og:image:height' content={ogImage.height} />
-        <meta name='twitter:card' content={twCard.summary} />
+        <meta name='twitter:card' content={twCard.lgImage} />
         <meta name='twitter:site' content={twSite} />
         <link rel='icon' href='/favicon.ico' />
       </Head>
