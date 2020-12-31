@@ -45,7 +45,9 @@ function MyApp({ Component, pageProps, cmsItems }: AppProps & TCmsItems): JSX.El
         <meta property='og:title' content={ogTitle} />
         <meta property='og:description' content={ogDescription} />
         <meta property='og:site_name' content={ogSiteName} />
-        <meta property='og:image' content={ogImage} />
+        <meta property='og:image' content={ogImage.path} />
+        <meta property='og:image:width' content={ogImage.width} />
+        <meta property='og:image:height' content={ogImage.height} />
         <meta name='twitter:card' content={twCard.summary} />
         <meta name='twitter:site' content={twSite} />
         <link rel='icon' href='/favicon.ico' />

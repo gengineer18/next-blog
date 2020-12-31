@@ -6,4 +6,4 @@ export const ogType = { web: 'website', article: 'article' }
 export const ogUrl = 'https://blog-sorellina-coda.dev'
 export const twCard = { summary: 'summary', lgImage: 'summary_large_image' }
 export const twSite = '@gengineer18'
-export const ogImage = `${ogUrl}/ogp.png`
+export const ogImage = { path: `${ogUrl}/ogp.png`, width: '1200', height: '630' }
