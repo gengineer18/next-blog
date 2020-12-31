@@ -4,6 +4,7 @@ import { TApi, TArticle } from '@/types'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { apiKey } from '@/utils/common'
 import { TheArticle } from '@/components/article/organisms'
+import { ogDescription, ogSiteName, ogUrl, ogImage, ogType, ogTitle, twSite, twCard } from '@/utils/ogp'
 
 type Props = {
   article: TArticle
@@ -35,8 +36,18 @@ export const getStaticProps: GetStaticProps = async (context) => {
 const Article = ({ article }: Props): JSX.Element => (
   <>
     <Head>
-      <title>{`${article.title} | Sorellina Coda Official Blog`}</title>
+      <title>{`${article.title} | ${ogTitle}`}</title>
       <meta name='description' content={`${article.description}`} />
+      <meta property='og:url' content={`${ogUrl}/articles/${article.id}`} />
+      <meta property='og:type' content={ogType.article} />
+      <meta property='og:title' content={article.title} />
+      <meta property='og:description' content={article.description} />
+      <meta property='og:site_name' content={ogSiteName} />
+      <meta property='og:image' content={ogImage.path} />
+      <meta property='og:image:width' content={ogImage.width} />
+      <meta property='og:image:height' content={ogImage.height} />
+      <meta name='twitter:card' content={twCard.lgImage} />
+      <meta name='twitter:site' content={twSite} />
     </Head>
     <TheArticle article={article} />
   </>
