@@ -1,10 +1,11 @@
 import { Text, Button, Flex } from '@chakra-ui/react'
 import Link from 'next/link'
 import React from 'react'
+import { FaUserAlt } from 'react-icons/fa'
 import { AsideBox } from '../molecules'
 
 export const AsideProfile: React.FC = () => (
-  <AsideBox title='プロフィール'>
+  <AsideBox title='プロフィール' icon={FaUserAlt}>
     <Text fontWeight='bold' mb={3} textAlign='center'>
       妹尾 弦(せのお げん)
     </Text>
