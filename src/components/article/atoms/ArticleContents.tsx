@@ -8,7 +8,7 @@ type Props = {
 
 const STBox = styled(Box)`
   & > ol {
-    li {
+    & > li {
       font-size: 1.1rem;
       list-style-type: none;
       counter-increment: number;
@@ -32,17 +32,20 @@ const STBox = styled(Box)`
         width: 2px;
         background: #1642bb;
       }
-    }
-  }
-  & > ul {
-    list-style: none;
-    margin-left: 1rem;
-    & > li {
-      text-indent: -1rem;
-      &:before {
-        content: '●';
-        color: #062883;
-        margin-right: 0.5rem;
+      & > ol {
+        & > li {
+          &:before {
+            position: relative;
+            top: -2px;
+            left: -0.5rem;
+            display: inline-block;
+            border-radius: 100%;
+            background: #cd241c;
+            content: '';
+            width: 0.5rem;
+            height: 0.5rem;
+          }
+        }
       }
     }
   }

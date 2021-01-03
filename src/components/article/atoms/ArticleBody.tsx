@@ -57,7 +57,7 @@ const STBox = styled(Box)`
     code {
       display: inline-block;
       padding: 0.1em 0.25em;
-      color: #444;
+      color: #ff6699;
       background-color: #e7edf3;
       border-radius: 3px;
       border: solid 1px #d6dde4;
@@ -67,6 +67,15 @@ const STBox = styled(Box)`
     img {
       margin: 0 auto;
     }
+  }
+  & > blockquote {
+    padding: 0.75rem;
+    font-size: 1rem;
+    margin: 0 1rem;
+    line-height: 2rem;
+    background-color: #e0efff;
+    border-radius: 12px;
+    border: 1px solid #062883;
   }
   & > pre {
     margin: 1em 0;
@@ -91,9 +100,15 @@ const STBox = styled(Box)`
       text-indent: -1rem;
       margin-bottom: 0.5rem;
       &:before {
-        content: '●';
-        color: #062883;
-        margin-right: 0.5rem;
+        position: relative;
+        top: -2px;
+        left: -0.5rem;
+        display: inline-block;
+        border-radius: 100%;
+        background: #062883;
+        content: '';
+        width: 0.6rem;
+        height: 0.6rem;
       }
       & > ul {
         list-style: none;
@@ -101,10 +116,15 @@ const STBox = styled(Box)`
         & > li {
           text-indent: -1rem;
           &:before {
-            content: '●';
-            font-size: 0.75rem;
-            color: #cd241c;
-            margin-right: 0.5rem;
+            position: relative;
+            top: -2px;
+            left: -0.5rem;
+            display: inline-block;
+            border-radius: 100%;
+            background: #cd241c;
+            content: '';
+            width: 0.5rem;
+            height: 0.5rem;
           }
         }
       }
