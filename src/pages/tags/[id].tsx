@@ -34,7 +34,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const id = context.params?.id || ''
-  const data: TArticle = await fetch(`${process.env.API_PATH}/blog?filters=tags[contains]${id}`, apiKey as RequestInit)
+  const data: TArticle = await fetch(
+    `${process.env.API_PATH}/blog?filters=tags[contains]${id}&orders=-publishedAt`,
+    apiKey as RequestInit
+  )
     .then((res) => res.json())
     .catch(() => null)
   return {

@@ -4,7 +4,7 @@ import { TApi, TArticle } from '@/types'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { apiKey } from '@/utils/common'
 import { TheArticle } from '@/components/article/organisms'
-import { ogDescription, ogSiteName, ogUrl, ogImage, ogType, ogTitle, twSite, twCard } from '@/utils/ogp'
+import { ogSiteName, ogUrl, ogImage, ogType, ogTitle, twSite, twCard } from '@/utils/ogp'
 
 type Props = {
   article: TArticle
@@ -37,7 +37,7 @@ const Article = ({ article }: Props): JSX.Element => (
   <>
     <Head>
       <title>{`${article.title} | ${ogTitle}`}</title>
-      <meta name='description' content={`${article.description}`} />
+      <meta name='description' content={article.description} />
       <meta property='og:url' content={`${ogUrl}/articles/${article.id}`} />
       <meta property='og:type' content={ogType.article} />
       <meta property='og:title' content={article.title} />
