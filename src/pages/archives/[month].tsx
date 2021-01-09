@@ -39,7 +39,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (context) => {
   const month = context.params?.month || ''
   const data: TArticle = await fetch(
-    `${process.env.API_PATH}/blog?filters=publishedAt[begins_with]${month}`,
+    `${process.env.API_PATH}/blog?filters=publishedAt[begins_with]${month}&orders=-publishedAt`,
     apiKey as RequestInit
   )
     .then((res) => res.json())
