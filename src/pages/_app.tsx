@@ -3,7 +3,7 @@ import React, { useEffect, useCallback } from 'react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { AppProps } from 'next/app'
-import { ChakraProvider, Grid, GridItem, Container } from '@chakra-ui/react'
+import { ChakraProvider, Grid, GridItem, Container, extendTheme } from '@chakra-ui/react'
 import { TheHeader, TheAside, TheFooter } from '@/components/common/layout/organisms'
 import { baseW, apiKey } from '@/utils/common'
 import reset from 'emotion-reset'
@@ -13,6 +13,17 @@ import * as gtag from '@/utils/gtag'
 import { ogTitle, ogDescription, ogSiteName, ogType, ogUrl, ogImage, twCard, twSite } from '@/utils/ogp'
 
 function MyApp({ Component, pageProps, cmsItems }: AppProps & TCmsItems): JSX.Element {
+  const theme = extendTheme({
+    colors: {
+      blue: {
+        600: '#1642bb',
+      },
+      red: {
+        500: '#cc241c',
+      },
+    },
+  })
+
   const router = useRouter()
 
   const handleRouteChange = useCallback((path: string) => {
@@ -57,7 +68,7 @@ function MyApp({ Component, pageProps, cmsItems }: AppProps & TCmsItems): JSX.El
           ${reset}
         `}
       />
-      <ChakraProvider>
+      <ChakraProvider theme={theme}>
         <TheHeader />
         <Container maxW={baseW}>
           <Grid templateColumns='repeat(10, 1fr)' gap={8} mt={8}>
