@@ -17,13 +17,17 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const paths = data.contents.map((content) => `/articles/${content.id}`)
   return {
     paths,
-    fallback: false,
+    fallback: true,
   }
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const id = context.params?.id || ''
-  const data: TArticle = await fetch(`${process.env.API_PATH}/blog/${id}`, apiKey as RequestInit)
+  const draftKey = context.previewData?.draftKey
+  const data: TArticle = await fetch(
+    `${process.env.API_PATH}/blog/${id}${draftKey !== undefined ? `?=draftKey={draftKey}` : ''}`,
+    apiKey as RequestInit
+  )
     .then((res) => res.json())
     .catch(() => null)
   return {
@@ -33,24 +37,30 @@ export const getStaticProps: GetStaticProps = async (context) => {
   }
 }
 
-const Article = ({ article }: Props): JSX.Element => (
-  <>
-    <Head>
-      <title>{`${article.title} | ${ogTitle}`}</title>
-      <meta name='description' content={article.description} />
-      <meta property='og:url' content={`${ogUrl}/articles/${article.id}`} />
-      <meta property='og:type' content={ogType.article} />
-      <meta property='og:title' content={article.title} />
-      <meta property='og:description' content={article.description} />
-      <meta property='og:site_name' content={ogSiteName} />
-      <meta property='og:image' content={ogImage.path} />
-      <meta property='og:image:width' content={ogImage.width} />
-      <meta property='og:image:height' content={ogImage.height} />
-      <meta name='twitter:card' content={twCard.lgImage} />
-      <meta name='twitter:site' content={twSite} />
-    </Head>
-    <TheArticle article={article} />
-  </>
-)
+const Article = ({ article }: Props): JSX.Element => {
+  if (!article) {
+    return <></>
+  }
+  return (
+    <>
+      <Head>
+        <title>{`${article.title} | ${ogTitle}`}</title>
+        <meta name='description' content={article.description} />
+        <meta property='og:url' content={`${ogUrl}/articles/${article.id}`} />
+        <meta property='og:type' content={ogType.article} />
+        <meta property='og:title' content={article.title} />
+        <meta property='og:description' content={article.description} />
+        <meta property='og:site_name' content={ogSiteName} />
+        <meta property='og:image' content={ogImage.path} />
+        <meta property='og:image:width' content={ogImage.width} />
+        <meta property='og:image:height' content={ogImage.height} />
+        <meta name='twitter:card' content={twCard.lgImage} />
+        <meta name='twitter:site' content={twSite} />
+      </Head>
+      <p>{JSON.stringify(article)}</p>
+      <TheArticle article={article} />
+    </>
+  )
+}
 
 export default Article
