@@ -57,7 +57,6 @@ const Article = ({ article }: Props): JSX.Element => {
         <meta name='twitter:card' content={twCard.lgImage} />
         <meta name='twitter:site' content={twSite} />
       </Head>
-      <p>{JSON.stringify(article)}</p>
       <TheArticle article={article} />
     </>
   )
