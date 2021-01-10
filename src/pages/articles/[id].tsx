@@ -25,7 +25,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const id = context.params?.id || ''
   const draftKey = context.previewData?.draftKey
   const data: TArticle = await fetch(
-    `${process.env.API_PATH}/blog/${id}${draftKey !== undefined ? `?=draftKey={draftKey}` : ''}`,
+    `${process.env.API_PATH}/blog/${id}${draftKey !== undefined ? `?draftKey=${draftKey}` : ''}`,
     apiKey as RequestInit
   )
     .then((res) => res.json())
