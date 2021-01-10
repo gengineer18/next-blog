@@ -3,7 +3,7 @@ import React from 'react'
 import { Box, Center, HStack } from '@chakra-ui/react'
 import { ArticleCategory, ArticleDate, ArticleImage, ArticleTag, ArticleTitle } from '@/components/common/article/atoms'
 import { ArticleBody } from '../atoms'
-import { ArticleContentsBox } from '../molecules'
+import { ArticleContentsBox, ArticleShare } from '../molecules'
 
 type Props = {
   article: TArticle
@@ -32,5 +32,6 @@ export const TheArticle = ({ article }: Props): JSX.Element => (
       <ArticleContentsBox contents={article.contents} />
     </Box>
     <ArticleBody body={article.body} />
+    <ArticleShare url={`https://blog-sorellina-coda.dev/articles/${article.id}`} title={article.title} />
   </article>
 )
