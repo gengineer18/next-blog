@@ -1,6 +1,5 @@
 /* eslint-disable consistent-return */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import fetch from 'node-fetch'
 import { apiKey } from '@/utils/common'
 
 export default async (req, res) => {
