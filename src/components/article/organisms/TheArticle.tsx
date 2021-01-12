@@ -22,9 +22,11 @@ export const TheArticle = ({ article }: Props): JSX.Element => (
     <Box mb={8}>
       <ArticleDate date={article.publishedAt} />
       <ArticleCategory name={article.category.name} />
-      <HStack spacing={2} mt={2}>
+      <HStack spacing={0} wrap='wrap' shouldWrapChildren>
         {article.tags?.map((tag) => (
-          <ArticleTag name={tag.name} key={tag.id} />
+          <Box mt={1} mr={2}>
+            <ArticleTag name={tag.name} key={tag.id} />
+          </Box>
         ))}
       </HStack>
     </Box>
