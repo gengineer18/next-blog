@@ -24,8 +24,8 @@ export const TheArticle = ({ article }: Props): JSX.Element => (
       <ArticleCategory name={article.category.name} />
       <HStack spacing={0} wrap='wrap' shouldWrapChildren>
         {article.tags?.map((tag) => (
-          <Box mt={1} mr={2}>
-            <ArticleTag name={tag.name} key={tag.id} />
+          <Box mt={1} mr={2} key={tag.id}>
+            <ArticleTag name={tag.name} />
           </Box>
         ))}
       </HStack>
