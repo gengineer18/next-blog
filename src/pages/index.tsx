@@ -3,6 +3,7 @@ import { GetStaticProps } from 'next'
 import { ArticleList } from '@/components/home/organisms'
 import { TApi, TArticle } from '@/types'
 import { apiKey } from '@/utils/common'
+import { NextHead } from '@/components/common/utils/organisms/NextHead'
 
 type Props = {
   articles: TArticle[]
@@ -10,6 +11,7 @@ type Props = {
 
 const Home = ({ articles }: Props): JSX.Element => (
   <>
+    <NextHead />
     <ArticleList articles={articles} />
   </>
 )

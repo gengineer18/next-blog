@@ -1,6 +1,6 @@
 import React from 'react'
 import { GetStaticPaths, GetStaticProps } from 'next'
-import Head from 'next/head'
+import { NextHead } from '@/components/common/utils/organisms/NextHead'
 import { ArticleList } from '@/components/home/organisms'
 import { TApi, TArticle, TCategory } from '@/types'
 import { apiKey } from '@/utils/common'
@@ -9,15 +9,15 @@ type Props = {
   articles: TArticle[]
 }
 
-const Categories = ({ articles }: Props): JSX.Element => (
-  <div>
-    <Head>
-      <title>{`カテゴリー: ${articles[0] && articles[0].category.name} | Sorellina Coda Official Blog`}</title>
-    </Head>
-
-    <ArticleList articles={articles} />
-  </div>
-)
+const Categories = ({ articles }: Props): JSX.Element => {
+  const title = `カテゴリー: ${articles[0] && articles[0].category.name} | Sorellina Coda Official Blog`
+  return (
+    <>
+      <NextHead title={title} />
+      <ArticleList articles={articles} />
+    </>
+  )
+}
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const data: TApi<TCategory> = await fetch(`${process.env.API_PATH}/categories`, apiKey as RequestInit)
