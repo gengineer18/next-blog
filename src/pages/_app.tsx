@@ -1,6 +1,5 @@
 /* eslint-disable react/style-prop-object */
 import React, { useEffect, useCallback } from 'react'
-import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { AppProps } from 'next/app'
 import { ChakraProvider, Grid, GridItem, Container, extendTheme } from '@chakra-ui/react'
@@ -10,7 +9,6 @@ import reset from 'emotion-reset'
 import { Global, css } from '@emotion/react'
 import { TApi, TArticle, TCmsItems, TCategory, TTag } from '@/types'
 import * as gtag from '@/utils/gtag'
-import { ogTitle, ogDescription, ogSiteName, ogType, ogUrl, ogImage, twCard, twSite } from '@/utils/ogp'
 
 function MyApp({ Component, pageProps, cmsItems }: AppProps & TCmsItems): JSX.Element {
   const theme = extendTheme({
@@ -47,22 +45,6 @@ function MyApp({ Component, pageProps, cmsItems }: AppProps & TCmsItems): JSX.El
 
   return (
     <>
-      <Head>
-        <title>{ogTitle}</title>
-        <meta charSet='utf-8' />
-        <meta name='description' content={ogDescription} />
-        <meta property='og:url' content={ogUrl} />
-        <meta property='og:type' content={ogType.web} />
-        <meta property='og:title' content={ogTitle} />
-        <meta property='og:description' content={ogDescription} />
-        <meta property='og:site_name' content={ogSiteName} />
-        <meta property='og:image' content={ogImage.path} />
-        <meta property='og:image:width' content={ogImage.width} />
-        <meta property='og:image:height' content={ogImage.height} />
-        <meta name='twitter:card' content={twCard.lgImage} />
-        <meta name='twitter:site' content={twSite} />
-        <link rel='icon' href='/favicon.ico' />
-      </Head>
       <Global
         styles={css`
           ${reset}

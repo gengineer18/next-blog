@@ -1,6 +1,6 @@
 import React from 'react'
+import { NextHead } from '@/components/common/utils/organisms/NextHead'
 import { GetStaticPaths, GetStaticProps } from 'next'
-import Head from 'next/head'
 import { ArticleList } from '@/components/home/organisms'
 import { TApi, TArticle } from '@/types'
 import { apiKey, dateToYYYYMM } from '@/utils/common'
@@ -9,17 +9,15 @@ type Props = {
   articles: TArticle[]
 }
 
-const Archives = ({ articles }: Props): JSX.Element => (
-  <div>
-    <Head>
-      <title>
-        {`アーカイブ: ${dateToYYYYMM(articles[0].publishedAt, 'YYYY年MM月')} | Sorellina Coda Official Blog`}
-      </title>
-    </Head>
-
-    <ArticleList articles={articles} />
-  </div>
-)
+const Archives = ({ articles }: Props): JSX.Element => {
+  const title = `アーカイブ: ${dateToYYYYMM(articles[0].publishedAt, 'YYYY年MM月')} | Sorellina Coda Official Blog`
+  return (
+    <>
+      <NextHead title={title} />
+      <ArticleList articles={articles} />
+    </>
+  )
+}
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const data: TApi<TArticle> = await fetch(`${process.env.API_PATH}/blog`, apiKey as RequestInit)

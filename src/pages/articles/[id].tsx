@@ -1,10 +1,10 @@
 import React from 'react'
-import Head from 'next/head'
+import { NextHead } from '@/components/common/utils/organisms/NextHead'
 import { TApi, TArticle } from '@/types'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { apiKey } from '@/utils/common'
 import { TheArticle } from '@/components/article/organisms'
-import { ogSiteName, ogUrl, ogImage, ogType, ogTitle, twSite, twCard } from '@/utils/ogp'
+import { ogUrl, ogTitle } from '@/utils/ogp'
 
 type Props = {
   article: TArticle
@@ -41,22 +41,12 @@ const Article = ({ article }: Props): JSX.Element => {
   if (!article) {
     return <></>
   }
+  const title = `${article.title} | ${ogTitle}`
+  const url = `${ogUrl}/articles/${article.id}`
+
   return (
     <>
-      <Head>
-        <title>{`${article.title} | ${ogTitle}`}</title>
-        <meta name='description' content={article.description} />
-        <meta property='og:url' content={`${ogUrl}/articles/${article.id}`} />
-        <meta property='og:type' content={ogType.article} />
-        <meta property='og:title' content={article.title} />
-        <meta property='og:description' content={article.description} />
-        <meta property='og:site_name' content={ogSiteName} />
-        <meta property='og:image' content={ogImage.path} />
-        <meta property='og:image:width' content={ogImage.width} />
-        <meta property='og:image:height' content={ogImage.height} />
-        <meta name='twitter:card' content={twCard.lgImage} />
-        <meta name='twitter:site' content={twSite} />
-      </Head>
+      <NextHead title={title} description={article.description} url={url} isArticle />
       <TheArticle article={article} />
     </>
   )

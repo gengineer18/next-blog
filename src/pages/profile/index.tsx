@@ -1,5 +1,5 @@
 import React from 'react'
-import Head from 'next/head'
+import { NextHead } from '@/components/common/utils/organisms/NextHead'
 import { TProfile } from '@/types'
 import { GetStaticProps } from 'next'
 import { apiKey } from '@/utils/common'
@@ -22,9 +22,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
 const Profile = ({ profile }: Props): JSX.Element => (
   <>
-    <Head>
-      <title>{`${profile.title} | Sorellina Coda Official Blog`}</title>
-    </Head>
+    <NextHead title={`${profile.title} | Sorellina Coda Official Blog`} />
     <TheProfile profile={profile} />
   </>
 )

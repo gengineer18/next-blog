@@ -1,25 +1,24 @@
 import React from 'react'
+import { NextHead } from '@/components/common/utils/organisms/NextHead'
 import { GetStaticPaths, GetStaticProps } from 'next'
-import Head from 'next/head'
 import { ArticleList } from '@/components/home/organisms'
 import { TApi, TArticle, TCategory } from '@/types'
 import { apiKey } from '@/utils/common'
 
 type Props = {
   articles: TArticle[]
+  tagName: string
 }
 
-const Tags = ({ articles }: Props): JSX.Element => (
-  <div>
-    <Head>
-      <title>
-        {`タグ: ${articles[0] && articles[0].tags && articles[0]?.tags[0].name} | Sorellina Coda Official Blog`}
-      </title>
-    </Head>
-
-    <ArticleList articles={articles} />
-  </div>
-)
+const Tags = ({ articles, tagName }: Props): JSX.Element => {
+  const title = `タグ: ${tagName} | Sorellina Coda Official Blog`
+  return (
+    <>
+      <NextHead title={title} />
+      <ArticleList articles={articles} />
+    </>
+  )
+}
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const data: TApi<TCategory> = await fetch(`${process.env.API_PATH}/tags`, apiKey as RequestInit)
@@ -40,9 +39,13 @@ export const getStaticProps: GetStaticProps = async (context) => {
   )
     .then((res) => res.json())
     .catch(() => null)
+  const tag = await fetch(`${process.env.API_PATH}/tags/${id}`, apiKey as RequestInit)
+    .then((res) => res.json())
+    .catch(() => null)
   return {
     props: {
       articles: data.contents,
+      tagName: tag.name,
     },
   }
 }
