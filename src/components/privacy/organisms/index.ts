@@ -1,0 +1,1 @@
+export { ThePrivacy } from './ThePrivacy'
