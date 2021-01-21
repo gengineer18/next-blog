@@ -29,7 +29,7 @@ export default async (req: NextApiRequest, res: NextApiResponse): Promise<void> 
   const lines = createTextLines(context, title)
   lines.forEach((line, index) => {
     const y = 120 + 40 * (index - (lines.length - 1) / 2)
-    context.fillText(line, 44, y)
+    context.fillText(line, 46, y)
   })
 
   const buffer = canvas.toBuffer()
@@ -45,7 +45,7 @@ const getTitle = async (id: string): Promise<string> => {
 }
 
 const createTextLine = (context: Context, text: string) => {
-  const maxWidth = 500
+  const maxWidth = 480
   for (let i = 0; i < text.length; i += 1) {
     const line = text.substring(0, i + 1)
     if (context.measureText(line).width > maxWidth) {
