@@ -36,6 +36,8 @@ export const NextHead: React.FC<Props> = ({
     <meta property='og:site_name' content={ogSiteName} />
     <meta property='og:url' content={url} />
     <meta property='og:type' content={isArticle ? ogType.article : ogType.web} />
-    <link rel='icon' href='/favicon.ico' />
+    <link rel='shortcut icon' href='/favicon.ico' />
+    <link rel='apple-touch-icon' href='/apple-touch-icon.png' />
+    <link rel='icon' type='image/png' href='/android-chrome-256x256.png' />
   </Head>
 )
