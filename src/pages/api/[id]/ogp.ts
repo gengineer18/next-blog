@@ -19,7 +19,7 @@ export default async (req: NextApiRequest, res: NextApiResponse): Promise<void> 
   registerFont(path.resolve('./fonts/GenShinGothic-P-Medium.ttf'), { family: 'GenShinGothic' })
 
   context.font = '36px GenShinGothic'
-  context.textAlign = 'center'
+  context.textAlign = 'left'
   context.textBaseline = 'middle'
 
   const backgroundImage = await loadImage(path.resolve('./public/ogp_bg.png'))
@@ -29,7 +29,7 @@ export default async (req: NextApiRequest, res: NextApiResponse): Promise<void> 
   const lines = createTextLines(context, title)
   lines.forEach((line, index) => {
     const y = 120 + 40 * (index - (lines.length - 1) / 2)
-    context.fillText(line, 300, y)
+    context.fillText(line, 44, y)
   })
 
   const buffer = canvas.toBuffer()
