@@ -43,10 +43,15 @@ const Article = ({ article }: Props): JSX.Element => {
   }
   const title = `${article.title} | ${ogTitle}`
   const url = `${ogUrl}/articles/${article.id}`
+  const image = {
+    width: '600',
+    height: '315',
+    path: `${process.env.NEXT_PUBLIC_WEB_URL}/api/${article.id}/ogp`,
+  }
 
   return (
     <>
-      <NextHead title={title} description={article.description} url={url} isArticle />
+      <NextHead title={title} description={article.description} url={url} image={image} isArticle />
       <TheArticle article={article} />
     </>
   )
