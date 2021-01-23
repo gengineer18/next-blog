@@ -17,9 +17,10 @@ export const useArchives = ({ articles }: Props): { articlesArray: typeof articl
   })[] = articles
   for (let i = 0; i < months.length; i += 1) {
     const archivedArticles = articles.filter((article) => dateToYYYYMM(article.publishedAt, DATE_FORMAT) === months[i])
+    const { publishedAt } = archivedArticles[0]
     articlesArray[i].count = archivedArticles.length
-    articlesArray[i].publishedMonth = dateToYYYYMM(articlesArray[i].publishedAt, DATE_FORMAT)
-    articlesArray[i].viewPublishedMonth = dateToYYYYMM(articlesArray[i].publishedAt, VIEW_DATE_FORMAT)
+    articlesArray[i].publishedMonth = dateToYYYYMM(publishedAt, DATE_FORMAT)
+    articlesArray[i].viewPublishedMonth = dateToYYYYMM(publishedAt, VIEW_DATE_FORMAT)
   }
   return { articlesArray }
 }
