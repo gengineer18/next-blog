@@ -2,7 +2,6 @@ import { NextApiRequest, NextApiResponse } from 'next'
 import * as path from 'path'
 import { createCanvas, registerFont, loadImage } from 'canvas'
 import { apiKey } from '@/utils/common'
-import { LineShareButton } from 'react-share'
 
 /**
  * canvas
