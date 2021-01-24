@@ -8,13 +8,11 @@ export const TheFooter: React.FC = () => {
     <Flex py={8}>
       <Spacer />
       <Text>{caption}</Text>
-      <Link href='./privacy'>
-        <a>
-          <Text ml={8} color='blue.600' textDecoration='underline'>
-            プライバシーポリシー
-          </Text>
-        </a>
-      </Link>
+      <Text ml={8} color='blue.600' textDecoration='underline'>
+        <Link href='./privacy'>
+          <a>プライバシーポリシー</a>
+        </Link>
+      </Text>
       <Spacer />
     </Flex>
   )
