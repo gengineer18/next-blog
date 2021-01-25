@@ -1,10 +1,11 @@
 import React from 'react'
-import { NextHead } from '@/components/common/utils/organisms/NextHead'
+import { NextHead, TheBreadcrumb } from '@/components/common/utils/organisms/'
 import { TApi, TArticle } from '@/types'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { apiKey } from '@/utils/common'
 import { TheArticle } from '@/components/article/organisms'
 import { ogUrl, ogTitle } from '@/utils/ogp'
+import { Box } from '@chakra-ui/react'
 
 type Props = {
   article: TArticle
@@ -48,11 +49,35 @@ const Article = ({ article }: Props): JSX.Element => {
     height: '315',
     path: `${process.env.NEXT_PUBLIC_WEB_URL}/api/${article.id}/ogp`,
   }
+  const breadcrumbs = [
+    {
+      name: 'ホーム',
+      path: '/',
+    },
+    {
+      name: 'カテゴリー',
+      path: '',
+    },
+    {
+      name: article.category.name,
+      path: `/categories/${article.category.id}`,
+    },
+    {
+      name: article.title,
+      path: '',
+    },
+  ]
 
   return (
     <>
       <NextHead title={title} description={article.description} url={url} image={image} isArticle />
+      <Box my={4}>
+        <TheBreadcrumb breadcrumbs={breadcrumbs} />
+      </Box>
       <TheArticle article={article} />
+      <Box my={6}>
+        <TheBreadcrumb breadcrumbs={breadcrumbs} />
+      </Box>
     </>
   )
 }
