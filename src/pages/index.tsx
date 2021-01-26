@@ -5,6 +5,7 @@ import { TApi, TArticle, TBreadcrumb } from '@/types'
 import { apiKey } from '@/utils/common'
 import { NextHead, TheBreadcrumb } from '@/components/common/utils/organisms'
 import { Box } from '@chakra-ui/react'
+import { IconHome } from '@/utils/icons'
 
 type Props = {
   articles: TArticle[]
@@ -15,6 +16,7 @@ const Home = ({ articles }: Props): JSX.Element => {
     {
       name: 'ホーム',
       path: '/',
+      icon: IconHome,
     },
   ]
   return (
