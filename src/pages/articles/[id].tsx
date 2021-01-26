@@ -6,6 +6,7 @@ import { apiKey } from '@/utils/common'
 import { TheArticle } from '@/components/article/organisms'
 import { ogUrl, ogTitle } from '@/utils/ogp'
 import { Box } from '@chakra-ui/react'
+import { IconCategory, IconHome, IconPencil } from '@/utils/icons'
 
 type Props = {
   article: TArticle
@@ -53,14 +54,17 @@ const Article = ({ article }: Props): JSX.Element => {
     {
       name: 'ホーム',
       path: '/',
+      icon: IconHome,
     },
     {
       name: article.category.name,
       path: `/categories/${article.category.id}`,
+      icon: IconCategory,
     },
     {
       name: article.title,
       path: '',
+      icon: IconPencil,
     },
   ]
 

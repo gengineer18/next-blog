@@ -5,6 +5,7 @@ import { GetStaticProps } from 'next'
 import { apiKey } from '@/utils/common'
 import { ThePrivacy } from '@/components/privacy/organisms'
 import { Box } from '@chakra-ui/react'
+import { IconHome } from '@/utils/icons'
 
 type Props = {
   privacy: TPrivacy
@@ -26,6 +27,7 @@ const Profile = ({ privacy }: Props): JSX.Element => {
     {
       name: 'ホーム',
       path: '/',
+      icon: IconHome,
     },
     {
       name: 'プライバシーポリシー',

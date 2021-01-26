@@ -5,6 +5,7 @@ import { GetStaticProps } from 'next'
 import { apiKey } from '@/utils/common'
 import { TheProfile } from '@/components/profile/organisms'
 import { Box } from '@chakra-ui/react'
+import { IconHome, IconProfile } from '@/utils/icons'
 
 type Props = {
   profile: TProfile
@@ -26,10 +27,12 @@ const Profile = ({ profile }: Props): JSX.Element => {
     {
       name: 'ホーム',
       path: '/',
+      icon: IconHome,
     },
     {
       name: profile.title,
       path: '',
+      icon: IconProfile,
     },
   ]
   return (

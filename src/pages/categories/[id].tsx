@@ -5,6 +5,7 @@ import { ArticleList } from '@/components/home/organisms'
 import { TApi, TArticle, TCategory, TBreadcrumb } from '@/types'
 import { apiKey } from '@/utils/common'
 import { Box } from '@chakra-ui/react'
+import { IconCategory, IconHome } from '@/utils/icons'
 
 type Props = {
   articles: TArticle[]
@@ -17,10 +18,12 @@ const Categories = ({ articles }: Props): JSX.Element => {
     {
       name: 'ホーム',
       path: '/',
+      icon: IconHome,
     },
     {
       name: category,
       path: '',
+      icon: IconCategory,
     },
   ]
   return (

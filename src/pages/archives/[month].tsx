@@ -5,6 +5,7 @@ import { ArticleList } from '@/components/home/organisms'
 import { TApi, TArticle, TBreadcrumb } from '@/types'
 import { apiKey, dateToYYYYMM } from '@/utils/common'
 import { Box } from '@chakra-ui/react'
+import { IconArchive, IconHome } from '@/utils/icons'
 
 type Props = {
   articles: TArticle[]
@@ -17,10 +18,12 @@ const Archives = ({ articles }: Props): JSX.Element => {
     {
       name: 'ホーム',
       path: '/',
+      icon: IconHome,
     },
     {
       name: month,
       path: '',
+      icon: IconArchive,
     },
   ]
   return (
