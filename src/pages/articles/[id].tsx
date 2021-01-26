@@ -1,11 +1,12 @@
 import React from 'react'
 import { NextHead, TheBreadcrumb } from '@/components/common/utils/organisms/'
-import { TApi, TArticle } from '@/types'
+import { TApi, TArticle, TBreadcrumb } from '@/types'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { apiKey } from '@/utils/common'
 import { TheArticle } from '@/components/article/organisms'
 import { ogUrl, ogTitle } from '@/utils/ogp'
 import { Box } from '@chakra-ui/react'
+import { IconCategory, IconHome, IconPencil } from '@/utils/icons'
 
 type Props = {
   article: TArticle
@@ -49,18 +50,21 @@ const Article = ({ article }: Props): JSX.Element => {
     height: '315',
     path: `${process.env.NEXT_PUBLIC_WEB_URL}/api/${article.id}/ogp`,
   }
-  const breadcrumbs = [
+  const breadcrumbs: TBreadcrumb[] = [
     {
       name: 'ホーム',
       path: '/',
+      icon: IconHome,
     },
     {
       name: article.category.name,
       path: `/categories/${article.category.id}`,
+      icon: IconCategory,
     },
     {
       name: article.title,
       path: '',
+      icon: IconPencil,
     },
   ]
 

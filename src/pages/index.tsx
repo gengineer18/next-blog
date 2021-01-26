@@ -1,20 +1,34 @@
 import React from 'react'
 import { GetStaticProps } from 'next'
 import { ArticleList } from '@/components/home/organisms'
-import { TApi, TArticle } from '@/types'
+import { TApi, TArticle, TBreadcrumb } from '@/types'
 import { apiKey } from '@/utils/common'
-import { NextHead } from '@/components/common/utils/organisms/NextHead'
+import { NextHead, TheBreadcrumb } from '@/components/common/utils/organisms'
+import { Box } from '@chakra-ui/react'
+import { IconHome } from '@/utils/icons'
 
 type Props = {
   articles: TArticle[]
 }
 
-const Home = ({ articles }: Props): JSX.Element => (
-  <>
-    <NextHead />
-    <ArticleList articles={articles} />
-  </>
-)
+const Home = ({ articles }: Props): JSX.Element => {
+  const breadcrumbs: TBreadcrumb[] = [
+    {
+      name: 'ホーム',
+      path: '/',
+      icon: IconHome,
+    },
+  ]
+  return (
+    <>
+      <NextHead />
+      <Box my={4}>
+        <TheBreadcrumb breadcrumbs={breadcrumbs} />
+      </Box>
+      <ArticleList articles={articles} />
+    </>
+  )
+}
 
 export const getStaticProps: GetStaticProps = async () => {
   const data: TApi<TArticle> = await fetch(`${process.env.API_PATH}/blog?orders=-publishedAt`, apiKey as RequestInit)

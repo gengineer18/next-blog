@@ -1,19 +1,37 @@
 import React from 'react'
-import { NextHead } from '@/components/common/utils/organisms/NextHead'
+import { NextHead, TheBreadcrumb } from '@/components/common/utils/organisms'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { ArticleList } from '@/components/home/organisms'
-import { TApi, TArticle } from '@/types'
+import { TApi, TArticle, TBreadcrumb } from '@/types'
 import { apiKey, dateToYYYYMM } from '@/utils/common'
+import { Box } from '@chakra-ui/react'
+import { IconArchive, IconHome } from '@/utils/icons'
 
 type Props = {
   articles: TArticle[]
 }
 
 const Archives = ({ articles }: Props): JSX.Element => {
-  const title = `アーカイブ: ${dateToYYYYMM(articles[0].publishedAt, 'YYYY年MM月')} | Sorellina Coda Official Blog`
+  const month = dateToYYYYMM(articles[0].publishedAt, 'YYYY年MM月')
+  const title = `アーカイブ: ${month} | Sorellina Coda Official Blog`
+  const breadcrumbs: TBreadcrumb[] = [
+    {
+      name: 'ホーム',
+      path: '/',
+      icon: IconHome,
+    },
+    {
+      name: month,
+      path: '',
+      icon: IconArchive,
+    },
+  ]
   return (
     <>
       <NextHead title={title} />
+      <Box my={4}>
+        <TheBreadcrumb breadcrumbs={breadcrumbs} />
+      </Box>
       <ArticleList articles={articles} />
     </>
   )

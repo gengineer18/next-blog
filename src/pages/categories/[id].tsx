@@ -1,19 +1,37 @@
 import React from 'react'
 import { GetStaticPaths, GetStaticProps } from 'next'
-import { NextHead } from '@/components/common/utils/organisms/NextHead'
+import { NextHead, TheBreadcrumb } from '@/components/common/utils/organisms'
 import { ArticleList } from '@/components/home/organisms'
-import { TApi, TArticle, TCategory } from '@/types'
+import { TApi, TArticle, TCategory, TBreadcrumb } from '@/types'
 import { apiKey } from '@/utils/common'
+import { Box } from '@chakra-ui/react'
+import { IconCategory, IconHome } from '@/utils/icons'
 
 type Props = {
   articles: TArticle[]
 }
 
 const Categories = ({ articles }: Props): JSX.Element => {
-  const title = `カテゴリー: ${articles[0] && articles[0].category.name} | Sorellina Coda Official Blog`
+  const category = articles[0] && articles[0].category.name
+  const title = `カテゴリー: ${category} | Sorellina Coda Official Blog`
+  const breadcrumbs: TBreadcrumb[] = [
+    {
+      name: 'ホーム',
+      path: '/',
+      icon: IconHome,
+    },
+    {
+      name: category,
+      path: '',
+      icon: IconCategory,
+    },
+  ]
   return (
     <>
       <NextHead title={title} />
+      <Box my={4}>
+        <TheBreadcrumb breadcrumbs={breadcrumbs} />
+      </Box>
       <ArticleList articles={articles} />
     </>
   )
