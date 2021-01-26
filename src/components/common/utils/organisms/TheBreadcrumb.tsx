@@ -15,11 +15,9 @@ export const TheBreadcrumb: React.FC<Props> = ({ breadcrumbs }) => (
           <BreadcrumbLink>{item.name}</BreadcrumbLink>
         </BreadcrumbItem>
       ) : (
-        <BreadcrumbItem>
+        <BreadcrumbItem key={item.path}>
           {item.icon && <Icon mr={2} as={item.icon} />}
-          <BreadcrumbLink href={item.path} key={item.path}>
-            {item.name}
-          </BreadcrumbLink>
+          <BreadcrumbLink href={item.path}>{item.name}</BreadcrumbLink>
         </BreadcrumbItem>
       )
     )}
