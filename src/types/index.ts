@@ -1,5 +1,5 @@
 export type { TApi } from '@/types/Api'
-export type { TArticle } from '@/types/Article'
+export type { TArticle, TArticleBody } from '@/types/Article'
 export type { TCategory } from '@/types/Category'
 export type { TCmsResponse } from '@/types/CmsResponse'
 export type { TTag } from '@/types/Tag'

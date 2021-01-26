@@ -2,9 +2,10 @@ import React, { useEffect } from 'react'
 import styled from '@emotion/styled'
 import { Box } from '@chakra-ui/react'
 import highlight from '@/utils/highlight'
+import { TArticleBody } from '@/types'
 
 type Props = {
-  body: string
+  bodyArray: TArticleBody[]
 }
 
 const STBox = styled(Box)`
@@ -132,10 +133,13 @@ const STBox = styled(Box)`
   }
 `
 
-export const ArticleBody: React.FC<Props> = ({ body }) => {
+export const ArticleBody: React.FC<Props> = ({ bodyArray }) => {
   useEffect(() => {
     highlight.initHighlighting()
     highlight.initHighlighting.called = false
   })
-  return <STBox dangerouslySetInnerHTML={{ __html: `${body}` }} />
+
+  const articleBody = bodyArray.map((item) => item.body).join('')
+
+  return <STBox dangerouslySetInnerHTML={{ __html: `${articleBody}` }} />
 }

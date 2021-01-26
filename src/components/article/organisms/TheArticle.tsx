@@ -33,7 +33,7 @@ export const TheArticle = ({ article }: Props): JSX.Element => (
     <Box mb={8}>
       <ArticleContentsBox contents={article.contents} />
     </Box>
-    <ArticleBody body={article.body} />
+    <ArticleBody bodyArray={article.bodyArray} />
     <ArticleShare url={`https://blog-sorellina-coda.dev/articles/${article.id}`} title={article.title} />
   </article>
 )
