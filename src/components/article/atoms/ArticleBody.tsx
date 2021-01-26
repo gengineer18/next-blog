@@ -5,7 +5,7 @@ import highlight from '@/utils/highlight'
 import { TArticleBody } from '@/types'
 
 type Props = {
-  bodyArray: TArticleBody[]
+  body: TArticleBody[] | string
 }
 
 const STBox = styled(Box)`
@@ -133,13 +133,13 @@ const STBox = styled(Box)`
   }
 `
 
-export const ArticleBody: React.FC<Props> = ({ bodyArray }) => {
+export const ArticleBody: React.FC<Props> = ({ body }) => {
   useEffect(() => {
     highlight.initHighlighting()
     highlight.initHighlighting.called = false
   })
 
-  const articleBody = bodyArray.map((item) => item.body).join('')
+  const articleBody = typeof body === 'string' ? body : body.map((item) => item.body).join('')
 
   return <STBox dangerouslySetInnerHTML={{ __html: `${articleBody}` }} />
 }
