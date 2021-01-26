@@ -55,10 +55,6 @@ const Article = ({ article }: Props): JSX.Element => {
       path: '/',
     },
     {
-      name: 'カテゴリー',
-      path: '',
-    },
-    {
       name: article.category.name,
       path: `/categories/${article.category.id}`,
     },
