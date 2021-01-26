@@ -10,12 +10,14 @@ export const TheBreadcrumb: React.FC<Props> = ({ breadcrumbs }) => (
   <Breadcrumb separator='>' fontWeight='medium' fontSize='sm'>
     {breadcrumbs.map((item, index, array) =>
       array.length - 1 === index ? (
-        <BreadcrumbItem isCurrentPage>
+        <BreadcrumbItem isCurrentPage key={item.path}>
           <BreadcrumbLink>{item.name}</BreadcrumbLink>
         </BreadcrumbItem>
       ) : (
         <BreadcrumbItem>
-          <BreadcrumbLink href={item.path}>{item.name}</BreadcrumbLink>
+          <BreadcrumbLink href={item.path} key={item.path}>
+            {item.name}
+          </BreadcrumbLink>
         </BreadcrumbItem>
       )
     )}

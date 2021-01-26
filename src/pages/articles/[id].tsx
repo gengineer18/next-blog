@@ -1,6 +1,6 @@
 import React from 'react'
 import { NextHead, TheBreadcrumb } from '@/components/common/utils/organisms/'
-import { TApi, TArticle } from '@/types'
+import { TApi, TArticle, TBreadcrumb } from '@/types'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { apiKey } from '@/utils/common'
 import { TheArticle } from '@/components/article/organisms'
@@ -49,7 +49,7 @@ const Article = ({ article }: Props): JSX.Element => {
     height: '315',
     path: `${process.env.NEXT_PUBLIC_WEB_URL}/api/${article.id}/ogp`,
   }
-  const breadcrumbs = [
+  const breadcrumbs: TBreadcrumb[] = [
     {
       name: 'ホーム',
       path: '/',

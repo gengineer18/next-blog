@@ -1,9 +1,10 @@
 import React from 'react'
-import { NextHead } from '@/components/common/utils/organisms/NextHead'
-import { TProfile } from '@/types'
+import { NextHead, TheBreadcrumb } from '@/components/common/utils/organisms'
+import { TProfile, TBreadcrumb } from '@/types'
 import { GetStaticProps } from 'next'
 import { apiKey } from '@/utils/common'
 import { TheProfile } from '@/components/profile/organisms'
+import { Box } from '@chakra-ui/react'
 
 type Props = {
   profile: TProfile
@@ -20,11 +21,25 @@ export const getStaticProps: GetStaticProps = async () => {
   }
 }
 
-const Profile = ({ profile }: Props): JSX.Element => (
-  <>
-    <NextHead title={`${profile.title} | Sorellina Coda Official Blog`} />
-    <TheProfile profile={profile} />
-  </>
-)
-
+const Profile = ({ profile }: Props): JSX.Element => {
+  const breadcrumbs: TBreadcrumb[] = [
+    {
+      name: 'ホーム',
+      path: '/',
+    },
+    {
+      name: profile.title,
+      path: '',
+    },
+  ]
+  return (
+    <>
+      <NextHead title={`${profile.title} | Sorellina Coda Official Blog`} />
+      <Box my={4}>
+        <TheBreadcrumb breadcrumbs={breadcrumbs} />
+      </Box>
+      <TheProfile profile={profile} />
+    </>
+  )
+}
 export default Profile
