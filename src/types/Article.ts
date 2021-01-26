@@ -5,11 +5,16 @@ type BaseArticle = {
   mainImage?: {
     url: string
   }
-  body: string
+  bodyArray: TArticleBody[]
   category: TCategory
   tags?: TTag[]
   contents: string
   description: string
+}
+
+export type TArticleBody = {
+  id: string
+  body: string
 }
 
 export type TArticle = TCmsResponse & BaseArticle
