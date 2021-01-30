@@ -9,6 +9,7 @@ import reset from 'emotion-reset'
 import { Global, css } from '@emotion/react'
 import { TApi, TArticle, TCmsItems, TCategory, TTag } from '@/types'
 import * as gtag from '@/utils/gtag'
+import '@/styles/yomereba.css'
 
 function MyApp({ Component, pageProps, cmsItems }: AppProps & TCmsItems): JSX.Element {
   const theme = extendTheme({

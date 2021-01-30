@@ -90,7 +90,8 @@ const STBox = styled(Box)`
   & > ol {
     font-size: 1.2rem;
     list-style: decimal;
-    margin-left: 1rem;
+    margin-left: 2rem;
+    margin-bottom: 2rem;
   }
   & > ul {
     font-size: 1.2rem;
@@ -98,7 +99,7 @@ const STBox = styled(Box)`
     margin-left: 2rem;
     margin-bottom: 2rem;
     & > li {
-      text-indent: -1rem;
+      text-indent: -0.5rem;
       margin-bottom: 0.5rem;
       &:before {
         position: relative;
@@ -115,7 +116,7 @@ const STBox = styled(Box)`
         list-style: none;
         margin-left: 2rem;
         & > li {
-          text-indent: -1rem;
+          text-indent: -0.5rem;
           &:before {
             position: relative;
             top: -2px;
