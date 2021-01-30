@@ -1,0 +1,482 @@
+/*=================================================================================
+	カエレバ・ヨメレバ・トマレバ
+=================================================================================*/
+
+.cstmreba {
+  width: 98%;
+  height: auto;
+  margin: 36px auto;
+  font-family: 'Lucida Grande', 'Hiragino Kaku Gothic ProN', Helvetica, Meiryo, sans-serif;
+  line-height: 1.5;
+  word-wrap: break-word;
+  box-sizing: border-box;
+  display: block;
+}
+
+/* WordPressで自動挿入されるPタグの余白を対処 */
+.cstmreba p {
+  margin: 0;
+  padding: 0;
+}
+
+.cstmreba a {
+  transition: 0.8s;
+  color: #285EFF;
+  /* テキストリンクカラー */
+}
+
+.cstmreba a:hover {
+  color: #FFCA28;
+  /* テキストリンクカラー(マウスオーバー時) */
+}
+
+.cstmreba .booklink-box,
+.cstmreba .kaerebalink-box,
+.cstmreba .tomarebalink-box {
+  width: 100%;
+  background-color: #fafafa;
+  /* 全体の背景カラー */
+  overflow: hidden;
+  border-radius: 0px;
+  box-sizing: border-box;
+  padding: 12px 8px;
+  box-shadow: 0px 2px 5px 0 rgba(0, 0, 0, .26);
+}
+
+/* サムネイル画像ボックス */
+.cstmreba .booklink-image,
+.cstmreba .kaerebalink-image,
+.cstmreba .tomarebalink-image {
+  width: 150px;
+  float: left;
+  margin: 0 14px 0 0;
+  text-align: center;
+  background: #fff;
+}
+
+.cstmreba .booklink-image a,
+.cstmreba .kaerebalink-image a,
+.cstmreba .tomarebalink-image a {
+  width: 100%;
+  display: block;
+}
+
+.cstmreba .booklink-image a img,
+.cstmreba .kaerebalink-image a img,
+.cstmreba .tomarebalink-image a img {
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+  background: #fff;
+}
+
+.cstmreba .booklink-info,
+.cstmreba .kaerebalink-info,
+.cstmreba .tomarebalink-info {
+  overflow: hidden;
+  line-height: 170%;
+  color: #333;
+}
+
+/* infoボックス内リンク下線非表示 */
+.cstmreba .booklink-info a,
+.cstmreba .kaerebalink-info a,
+.cstmreba .tomarebalink-info a {
+  text-decoration: none;
+}
+
+/* 作品・商品・ホテル名 リンク */
+.cstmreba .booklink-name>a,
+.cstmreba .kaerebalink-name>a,
+.cstmreba .tomarebalink-name>a {
+  border-bottom: 1px solid;
+  font-size: 16px;
+}
+
+/* powered by */
+.cstmreba .booklink-powered-date,
+.cstmreba .kaerebalink-powered-date,
+.cstmreba .tomarebalink-powered-date {
+  font-size: 10px;
+  line-height: 150%;
+}
+
+.cstmreba .booklink-powered-date a,
+.cstmreba .kaerebalink-powered-date a,
+.cstmreba .tomarebalink-powered-date a {
+  color: #333;
+  border-bottom: none;
+}
+
+.cstmreba .booklink-powered-date a:hover,
+.cstmreba .kaerebalink-powered-date a:hover,
+.cstmreba .tomarebalink-powered-date a:hover {
+  color: #333;
+  border-bottom: 1px solid #333;
+}
+
+/* 著者・住所 */
+.cstmreba .booklink-detail,
+.cstmreba .kaerebalink-detail,
+.cstmreba .tomarebalink-address {
+  font-size: 12px;
+}
+
+.cstmreba .kaerebalink-link1 div img,
+.cstmreba .booklink-link2 div img,
+.cstmreba .tomarebalink-link1 div img {
+  display: none !important;
+}
+
+.cstmreba .kaerebalink-link1,
+.cstmreba .booklink-link2,
+.cstmreba .tomarebalink-link1 {
+  display: inline-block;
+  width: 100%;
+  margin-top: 5px;
+}
+
+.cstmreba .booklink-link2>div,
+.cstmreba .kaerebalink-link1>div,
+.cstmreba .tomarebalink-link1>div {
+  float: left;
+  width: 24%;
+  min-width: 128px;
+  margin: 0.5%;
+}
+
+/***** ボタンデザインここから ******/
+.cstmreba .booklink-link2 a,
+.cstmreba .kaerebalink-link1 a,
+.cstmreba .tomarebalink-link1 a {
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+  box-sizing: border-box;
+  margin: 1px 0;
+  padding: 3% 0.5%;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 180%;
+  color: #fff;
+  box-shadow: 0px 2px 4px 0 rgba(0, 0, 0, .26);
+}
+
+/* トマレバ */
+.cstmreba .tomarebalink-link1 .shoplinkrakuten a {
+  background: #76ae25;
+  border: 2px solid #76ae25;
+}
+
+/* 楽天トラベル */
+.cstmreba .tomarebalink-link1 .shoplinkjalan a {
+  background: #ff7a15;
+  border: 2px solid #ff7a15;
+}
+
+/* じゃらん */
+.cstmreba .tomarebalink-link1 .shoplinkjtb a {
+  background: #c81528;
+  border: 2px solid #c81528;
+}
+
+/* JTB */
+.cstmreba .tomarebalink-link1 .shoplinkknt a {
+  background: #0b499d;
+  border: 2px solid #0b499d;
+}
+
+/* KNT */
+.cstmreba .tomarebalink-link1 .shoplinkikyu a {
+  background: #bf9500;
+  border: 2px solid #bf9500;
+}
+
+/* 一休 */
+.cstmreba .tomarebalink-link1 .shoplinkrurubu a {
+  background: #000066;
+  border: 2px solid #000066;
+}
+
+/* るるぶ */
+.cstmreba .tomarebalink-link1 .shoplinkyahoo a {
+  background: #ff0033;
+  border: 2px solid #ff0033;
+}
+
+/* Yahoo!トラベル */
+.cstmreba .tomarebalink-link1 .shoplinkhis a {
+  background: #004bb0;
+  border: 2px solid #004bb0;
+}
+
+/*** HIS ***/
+/* カエレバ */
+.cstmreba .kaerebalink-link1 .shoplinkyahoo a {
+  background: #ff0033;
+  border: 2px solid #ff0033;
+  letter-spacing: normal;
+}
+
+/* Yahoo!ショッピング */
+.cstmreba .kaerebalink-link1 .shoplinkbellemaison a {
+  background: #84be24;
+  border: 2px solid #84be24;
+}
+
+/* ベルメゾン */
+.cstmreba .kaerebalink-link1 .shoplinkcecile a {
+  background: #8d124b;
+  border: 2px solid #8d124b;
+}
+
+/* セシール */
+.cstmreba .kaerebalink-link1 .shoplinkwowma a {
+  background: #ea5404;
+  border: 2px solid #ea5404;
+}
+
+/* Wowma */
+.cstmreba .kaerebalink-link1 .shoplinkkakakucom a {
+  background: #314995;
+  border: 2px solid #314995;
+}
+
+/* 価格コム */
+/* ヨメレバ */
+.cstmreba .booklink-link2 .shoplinkkindle a {
+  background: #007dcd;
+  border: 2px solid #007dcd;
+}
+
+/* Kindle */
+.cstmreba .booklink-link2 .shoplinkrakukobo a {
+  background: #bf0000;
+  border: 2px solid #bf0000;
+}
+
+/* 楽天kobo */
+.cstmreba .booklink-link2 .shoplinkbk1 a {
+  background: #0085cd;
+  border: 2px solid #0085cd;
+}
+
+/* honto */
+.cstmreba .booklink-link2 .shoplinkehon a {
+  background: #2a2c6d;
+  border: 2px solid #2a2c6d;
+}
+
+/* ehon */
+.cstmreba .booklink-link2 .shoplinkkino a {
+  background: #003e92;
+  border: 2px solid #003e92;
+}
+
+/* 紀伊國屋書店 */
+.cstmreba .booklink-link2 .shoplinkebj a {
+  background: #f8485e;
+  border: 2px solid #f8485e;
+}
+
+/* ebookjapan */
+.cstmreba .booklink-link2 .shoplinktoshokan a {
+  background: #333333;
+  border: 2px solid #333333;
+}
+
+/* 図書館 */
+/* カエレバ・ヨメレバ共通 */
+.cstmreba .kaerebalink-link1 .shoplinkamazon a,
+.cstmreba .booklink-link2 .shoplinkamazon a {
+  background: #FF9901;
+  border: 2px solid #ff9901;
+}
+
+/* Amazon */
+.cstmreba .kaerebalink-link1 .shoplinkrakuten a,
+.cstmreba .booklink-link2 .shoplinkrakuten a {
+  background: #bf0000;
+  border: 2px solid #bf0000;
+}
+
+/* 楽天 */
+.cstmreba .kaerebalink-link1 .shoplinkseven a,
+.cstmreba .booklink-link2 .shoplinkseven a {
+  background: #225496;
+  border: 2px solid #225496;
+}
+
+/* 7net */
+/****** ボタンカラー ここまで *****/
+
+/***** ボタンデザイン　マウスオーバー時ここから *****/
+.cstmreba .booklink-link2 a:hover,
+.cstmreba .kaerebalink-link1 a:hover,
+.cstmreba .tomarebalink-link1 a:hover {
+  background: #fff;
+}
+
+/* トマレバ */
+.cstmreba .tomarebalink-link1 .shoplinkrakuten a:hover {
+  color: #76ae25;
+}
+
+/* 楽天トラベル */
+.cstmreba .tomarebalink-link1 .shoplinkjalan a:hover {
+  color: #ff7a15;
+}
+
+/* じゃらん */
+.cstmreba .tomarebalink-link1 .shoplinkjtb a:hover {
+  color: #c81528;
+}
+
+/* JTB */
+.cstmreba .tomarebalink-link1 .shoplinkknt a:hover {
+  color: #0b499d;
+}
+
+/* KNT */
+.cstmreba .tomarebalink-link1 .shoplinkikyu a:hover {
+  color: #bf9500;
+}
+
+/* 一休 */
+.cstmreba .tomarebalink-link1 .shoplinkrurubu a:hover {
+  color: #000066;
+}
+
+/* るるぶ */
+.cstmreba .tomarebalink-link1 .shoplinkyahoo a:hover {
+  color: #ff0033;
+}
+
+/* Yahoo!トラベル */
+.cstmreba .tomarebalink-link1 .shoplinkhis a:hover {
+  color: #004bb0;
+}
+
+/*** HIS ***/
+/* カエレバ */
+.cstmreba .kaerebalink-link1 .shoplinkyahoo a:hover {
+  color: #ff0033;
+}
+
+/* Yahoo!ショッピング */
+.cstmreba .kaerebalink-link1 .shoplinkbellemaison a:hover {
+  color: #84be24;
+}
+
+/* ベルメゾン */
+.cstmreba .kaerebalink-link1 .shoplinkcecile a:hover {
+  color: #8d124b;
+}
+
+/* セシール */
+.cstmreba .kaerebalink-link1 .shoplinkwowma a:hover {
+  color: #ea5404;
+}
+
+/* Wowma */
+.cstmreba .kaerebalink-link1 .shoplinkkakakucom a:hover {
+  color: #314995;
+}
+
+/* 価格コム */
+/* ヨメレバ */
+.cstmreba .booklink-link2 .shoplinkkindle a:hover {
+  color: #007dcd;
+}
+
+/* Kindle */
+.cstmreba .booklink-link2 .shoplinkrakukobo a:hover {
+  color: #bf0000;
+}
+
+/* 楽天kobo */
+.cstmreba .booklink-link2 .shoplinkbk1 a:hover {
+  color: #0085cd;
+}
+
+/* honto */
+.cstmreba .booklink-link2 .shoplinkehon a:hover {
+  color: #2a2c6d;
+}
+
+/* ehon */
+.cstmreba .booklink-link2 .shoplinkkino a:hover {
+  color: #003e92;
+}
+
+/* 紀伊國屋書店 */
+.cstmreba .booklink-link2 .shoplinkebj a:hover {
+  color: #f8485e;
+}
+
+/* ebookjapan */
+.cstmreba .booklink-link2 .shoplinktoshokan a:hover {
+  color: #333333;
+}
+
+/* 図書館 */
+/* カエレバ・ヨメレバ共通 */
+.cstmreba .kaerebalink-link1 .shoplinkamazon a:hover,
+.cstmreba .booklink-link2 .shoplinkamazon a:hover {
+  color: #FF9901;
+}
+
+/* Amazon */
+.cstmreba .kaerebalink-link1 .shoplinkrakuten a:hover,
+.cstmreba .booklink-link2 .shoplinkrakuten a:hover {
+  color: #bf0000;
+}
+
+/* 楽天 */
+.cstmreba .kaerebalink-link1 .shoplinkseven a:hover,
+.cstmreba .booklink-link2 .shoplinkseven a:hover {
+  color: #225496;
+}
+
+/* 7net */
+/***** ボタンデザイン　マウスオーバー時ここまで *****/
+.cstmreba .booklink-footer {
+  clear: both;
+}
+
+/*****  解像度768px以下のスタイル *****/
+@media screen and (max-width:768px) {
+
+  .cstmreba .booklink-image,
+  .cstmreba .kaerebalink-image,
+  .cstmreba .tomarebalink-image {
+    width: 100%;
+    float: none;
+  }
+
+  .cstmreba .booklink-link2>div,
+  .cstmreba .kaerebalink-link1>div,
+  .cstmreba .tomarebalink-link1>div {
+    width: 32.33%;
+    margin: 0.5%;
+  }
+
+  .cstmreba .booklink-info,
+  .cstmreba .kaerebalink-info,
+  .cstmreba .tomarebalink-info {
+    text-align: center;
+    padding-bottom: 1px;
+  }
+}
+
+/*****  解像度480px以下のスタイル *****/
+@media screen and (max-width:480px) {
+
+  .cstmreba .booklink-link2>div,
+  .cstmreba .kaerebalink-link1>div,
+  .cstmreba .tomarebalink-link1>div {
+    width: 49%;
+    margin: 0.5%;
+  }
+}
