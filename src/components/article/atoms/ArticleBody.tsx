@@ -31,8 +31,8 @@ const STBox = styled(Box)`
       content: '';
       position: absolute;
       background: #062883;
-      width: 4px;
-      height: 2rem;
+      width: 8px;
+      height: 100%;
       display: block;
       top: 0;
       left: -1rem;
@@ -90,7 +90,7 @@ const STBox = styled(Box)`
   & > ol {
     font-size: 1.2rem;
     list-style: decimal;
-    margin-left: 2rem;
+    margin-left: 2.5rem;
     margin-bottom: 2rem;
   }
   & > ul {

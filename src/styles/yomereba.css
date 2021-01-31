@@ -21,12 +21,12 @@
 
 .cstmreba a {
   transition: 0.8s;
-  color: #285EFF;
+  color: #1642bb;
   /* テキストリンクカラー */
 }
 
 .cstmreba a:hover {
-  color: #FFCA28;
+  color: #cc241c;
   /* テキストリンクカラー(マウスオーバー時) */
 }
 
