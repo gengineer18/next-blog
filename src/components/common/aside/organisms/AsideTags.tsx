@@ -4,8 +4,6 @@ import { TTag, TArticle } from '@/types'
 import { Box, HStack } from '@chakra-ui/react'
 import { IconTag } from '@/utils/icons'
 import { AsideBox } from '../molecules'
-import { AsideNumberListItem } from '../atoms'
-import { useTags } from './hooks/useTags'
 import { ArticleTag } from '../../article/atoms'
 
 type Props = {
