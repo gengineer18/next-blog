@@ -2,7 +2,7 @@ import React from 'react'
 import { NextHead, TheBreadcrumb } from '@/components/common/utils/organisms/'
 import { TApi, TArticle, TBreadcrumb } from '@/types'
 import { GetStaticPaths, GetStaticProps } from 'next'
-import { apiKey } from '@/utils/common'
+import { apiKey, LIMIT_ARTICLES } from '@/utils/common'
 import { TheArticle } from '@/components/article/organisms'
 import { ogUrl, ogTitle } from '@/utils/ogp'
 import { Box } from '@chakra-ui/react'
@@ -13,7 +13,10 @@ type Props = {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const data: TApi<TArticle> = await fetch(`${process.env.API_PATH}/blog`, apiKey as RequestInit)
+  const data: TApi<TArticle> = await fetch(
+    `${process.env.API_PATH}/blog?limit=${LIMIT_ARTICLES}`,
+    apiKey as RequestInit
+  )
     .then((res) => res.json())
     .catch(() => null)
   const paths = data.contents.map((content) => `/articles/${content.id}`)

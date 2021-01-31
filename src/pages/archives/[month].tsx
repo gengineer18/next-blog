@@ -3,7 +3,7 @@ import { NextHead, TheBreadcrumb } from '@/components/common/utils/organisms'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { ArticleList } from '@/components/home/organisms'
 import { TApi, TArticle, TBreadcrumb } from '@/types'
-import { apiKey, dateToYYYYMM } from '@/utils/common'
+import { apiKey, dateToYYYYMM, LIMIT_ARTICLES } from '@/utils/common'
 import { Box } from '@chakra-ui/react'
 import { IconArchive, IconHome } from '@/utils/icons'
 
@@ -38,7 +38,10 @@ const Archives = ({ articles }: Props): JSX.Element => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const data: TApi<TArticle> = await fetch(`${process.env.API_PATH}/blog`, apiKey as RequestInit)
+  const data: TApi<TArticle> = await fetch(
+    `${process.env.API_PATH}/blog?limit=${LIMIT_ARTICLES}`,
+    apiKey as RequestInit
+  )
     .then((res) => res.json())
     .catch(() => null)
   // 各記事の配信月を抽出した配列を作る
@@ -55,7 +58,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (context) => {
   const month = context.params?.month || ''
   const data: TArticle = await fetch(
-    `${process.env.API_PATH}/blog?filters=publishedAt[begins_with]${month}&orders=-publishedAt`,
+    `${process.env.API_PATH}/blog?limit=${LIMIT_ARTICLES}&filters=publishedAt[begins_with]${month}&orders=-publishedAt`,
     apiKey as RequestInit
   )
     .then((res) => res.json())

@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import * as path from 'path'
 import { createCanvas, registerFont, loadImage } from 'canvas'
-import { apiKey } from '@/utils/common'
+import { apiKey, LIMIT_ARTICLES } from '@/utils/common'
 
 /**
  * canvas
@@ -38,7 +38,10 @@ export default async (req: NextApiRequest, res: NextApiResponse): Promise<void> 
 }
 
 const getTitle = async (id: string): Promise<string> => {
-  const data = await fetch(`${process.env.API_PATH}/blog/${id}`, apiKey as RequestInit).then((res) => res.json())
+  const data = await fetch(
+    `${process.env.API_PATH}/blog/${id}?limit=${LIMIT_ARTICLES}`,
+    apiKey as RequestInit
+  ).then((res) => res.json())
   const { title }: { title: string } = data
   return title
 }
