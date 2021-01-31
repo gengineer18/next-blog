@@ -3,7 +3,7 @@ import { NextHead, TheBreadcrumb } from '@/components/common/utils/organisms'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { ArticleList } from '@/components/home/organisms'
 import { TApi, TArticle, TCategory, TBreadcrumb } from '@/types'
-import { apiKey } from '@/utils/common'
+import { apiKey, LIMIT_ARTICLES, LIMIT_TAGS } from '@/utils/common'
 import { Box } from '@chakra-ui/react'
 import { IconHome, IconTag } from '@/utils/icons'
 
@@ -38,7 +38,7 @@ const Tags = ({ articles, tagName }: Props): JSX.Element => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const data: TApi<TCategory> = await fetch(`${process.env.API_PATH}/tags`, apiKey as RequestInit)
+  const data: TApi<TCategory> = await fetch(`${process.env.API_PATH}/tags?limit=${LIMIT_TAGS}`, apiKey as RequestInit)
     .then((res) => res.json())
     .catch(() => null)
   const paths = data.contents.map((content) => `/tags/${content.id}`)
@@ -51,7 +51,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (context) => {
   const id = context.params?.id || ''
   const data: TArticle = await fetch(
-    `${process.env.API_PATH}/blog?filters=tags[contains]${id}&orders=-publishedAt`,
+    `${process.env.API_PATH}/blog?limit=${LIMIT_ARTICLES}&filters=tags[contains]${id}&orders=-publishedAt`,
     apiKey as RequestInit
   )
     .then((res) => res.json())

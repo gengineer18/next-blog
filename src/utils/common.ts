@@ -15,3 +15,8 @@ export const dateToYYYYMM = (date: Date, format: string): string => {
   const dateYYYYMM = dayjs(date).format(format)
   return dateYYYYMM
 }
+
+export const LIMIT_ARTICLES = 100
+export const LIMIT_LATEST_ARTICLES = 5
+export const LIMIT_CATEGORIES = 20
+export const LIMIT_TAGS = 30

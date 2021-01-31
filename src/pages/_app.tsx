@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import { AppProps } from 'next/app'
 import { ChakraProvider, Grid, GridItem, Container, extendTheme } from '@chakra-ui/react'
 import { TheHeader, TheAside, TheFooter } from '@/components/common/layout/organisms'
-import { baseW, apiKey } from '@/utils/common'
+import { baseW, apiKey, LIMIT_ARTICLES, LIMIT_CATEGORIES, LIMIT_TAGS } from '@/utils/common'
 import reset from 'emotion-reset'
 import { Global, css } from '@emotion/react'
 import { TApi, TArticle, TCmsItems, TCategory, TTag } from '@/types'
@@ -76,15 +76,21 @@ function MyApp({ Component, pageProps, cmsItems }: AppProps & TCmsItems): JSX.El
 }
 
 MyApp.getInitialProps = async () => {
-  const articles: TApi<TArticle> = await fetch(`${process.env.API_PATH}/blog`, apiKey as RequestInit)
+  const articles: TApi<TArticle> = await fetch(
+    `${process.env.API_PATH}/blog?limit=${LIMIT_ARTICLES}&orders=-publishedAt`,
+    apiKey as RequestInit
+  )
     .then((res) => res.json())
     .catch(() => null)
 
-  const categories: TApi<TCategory> = await fetch(`${process.env.API_PATH}/categories`, apiKey as RequestInit)
+  const categories: TApi<TCategory> = await fetch(
+    `${process.env.API_PATH}/categories?limit=${LIMIT_CATEGORIES}`,
+    apiKey as RequestInit
+  )
     .then((res) => res.json())
     .catch(() => null)
 
-  const tags: TApi<TTag> = await fetch(`${process.env.API_PATH}/tags`, apiKey as RequestInit)
+  const tags: TApi<TTag> = await fetch(`${process.env.API_PATH}/tags?limit=${LIMIT_TAGS}`, apiKey as RequestInit)
     .then((res) => res.json())
     .catch(() => null)
 
