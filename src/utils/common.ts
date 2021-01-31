@@ -6,8 +6,8 @@ export const apiKey = {
 
 export const baseW = '6xl'
 
-export const dateToYYYYMMDD = (date: Date): string => {
-  const dateYYYYMMDD = dayjs(date).format('YYYY年MM月DD日')
+export const dateToYYYYMMDD = (date: Date, format = 'YYYY年MM月DD日'): string => {
+  const dateYYYYMMDD = dayjs(date).format(format)
   return dateYYYYMMDD
 }
 
