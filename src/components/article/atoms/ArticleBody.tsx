@@ -49,6 +49,9 @@ const STBox = styled(Box)`
     a {
       color: #062883;
       text-decoration: underline;
+      &:hover {
+        color: #cd241c;
+      }
     }
     br {
       display: block;
@@ -111,6 +114,13 @@ const STBox = styled(Box)`
         content: '';
         width: 0.6rem;
         height: 0.6rem;
+      }
+      a {
+        text-decoration: underline;
+        color: #062883;
+        &:hover {
+          color: #cd241c;
+        }
       }
       & > ul {
         list-style: none;
