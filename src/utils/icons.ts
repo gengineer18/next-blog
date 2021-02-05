@@ -5,4 +5,6 @@ export {
   FaPencilAlt as IconPencil,
   FaUserAlt as IconProfile,
   FaTag as IconTag,
+  FaArrowRight as IconNext,
+  FaArrowLeft as IconPrev,
 } from 'react-icons/fa'
