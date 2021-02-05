@@ -2847,6 +2847,13 @@ canvas@^2.6.1:
     node-pre-gyp "^0.11.0"
     simple-get "^3.0.3"
 
+chakra-paginator@^0.5.3:
+  version "0.5.3"
+  resolved "https://registry.yarnpkg.com/chakra-paginator/-/chakra-paginator-0.5.3.tgz#1887daff607a99a88303124f79f139bb624be0d4"
+  integrity sha512-rYT4S0epl1xT/VEA4gIolq7OuxyPwdweZykdbkvo6t4qnW6X9gfxw1LVCBRBxLvaI8p8x+mC3suOzbcrzbNLmg==
+  dependencies:
+    lodash.union "^4.6.0"
+
 chalk@4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/chalk/-/chalk-4.0.0.tgz#6e98081ed2d17faab615eb52ac66ec1fe6209e72"
@@ -5101,6 +5108,11 @@ lodash.sortby@^4.7.0:
   version "4.7.0"
   resolved "https://registry.yarnpkg.com/lodash.sortby/-/lodash.sortby-4.7.0.tgz#edd14c824e2cc9c1e0b0a1b42bb5210516a42438"
   integrity sha1-7dFMgk4sycHgsKG0K7UhBRakJDg=
+
+lodash.union@^4.6.0:
+  version "4.6.0"
+  resolved "https://registry.yarnpkg.com/lodash.union/-/lodash.union-4.6.0.tgz#48bb5088409f16f1821666641c44dd1aaae3cd88"
+  integrity sha1-SLtQiECfFvGCFmZkHETdGqrjzYg=
 
 lodash@^4.17.11, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19:
   version "4.17.20"
